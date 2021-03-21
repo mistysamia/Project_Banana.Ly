@@ -1,37 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="stylehome.css">
 </head>
+
 <body>
-    <form action="SignUpLogIn" method="POST" style="float: right; padding-right: 5%;">
-        <button class="btn btn-success btn-lg" type="submit">Login</button>
-    </form>
 
-    <div class="container" style="padding-top: 5%; padding-left: 10%; padding-right: 10%;">
-        <form class="my-4 form-inline" action="/" method="POST">
-            <input type="url" class="form-control col mr-2" name="fullUrl" id="fullUrl" placeholder="https://example.com" required>
-            <button class="btn btn-success" type="submit" style="width: 100px;">Shrink</button>
-        </form>
+    <!-- Fixed Background Starts -->
+    <div class="container">
+        <!--  Card Background Starts -->
+        <div id="CardBackground">
+            <!-- Header Starts -->
+            <section class="header" id="header">
+                <a href="">
+                    <img src="logo.png" style="height:210; width: 190px;" />
+                </a>
 
-        <div class="my-4 form-inline">
-            <input type="text" class="form-control col mr-2" name="shortUrlBox" id="shortUrlBox"
-                readonly placeholder="short url" value="localhost:5000/<%=shortUrls.short%>">
-            <button class="btn btn-success" onclick="copyToClipboard()" style="width: 100px;">Copy</button>
-            <script>
-                function copyToClipboard() {
-                    var copyText = document.getElementById("shortUrlBox");
-                    copyText.select();
-                    copyText.setSelectionRange(0, 99999);
-                    document.execCommand("copy");
-                    alert("Copied to Clipboard: " + copyText.value);
-                }
-            </script>
+                <!--  Sign in button STarts -->
+                <form action="SignUpLogIn" method="POST">
+                    <div class="twitter social-button">
+                        <div>
+                            <button id="signin" class="astext" type="submit"><img src="signinIMG.png">Signin</button>
+                        </div>
+                        <div class="cover">
+                            <div class="inner">
+                            </div>
+                            <div class="edge"></div>
+                            <div class="outer">
+                            </div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </form>
+                <!--  Sign in button Ends -->
+            </section>
+            <!-- Header Ends -->
+
+
+
+
+
+            <!-- Main field starts -->
+            <section class="box">
+                <!-- <div>
+                        <input type="text" name="" required="required">
+                        <span>Give Me the Link</span>
+                        <div class="d-flex justify-content-center">
+                            <input class="l" type="checkbox">
+                        </div>
+                    </div>-->
+                <!--Input Starts Here-->
+                <div>
+                    <form class="my-4 form-inline" action="/" method="POST">
+                        <div class="col-md-4  d-flex">
+
+                            <div>
+                                <input type="text" name="fullUrl" id="fullUrl" placeholder="" required
+                                    style="width: 640px;">
+                                <span> Give Me the Link</sp>
+                            </div>
+
+                            <div class="form__field form__field--submit">
+                                <div style="margin-left: 60px;">
+                                    <input type="submit" id="btnnn" onclick="shrink()"
+                                        style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="btn" value="Shrink" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <input class="l" type="checkbox">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--Input Ends Here-->
+
+                <!--Output Starts Here-->
+                <div>
+                    <div class="col-md-4  d-flex">
+                        <div>
+                            <output type="text" name="shortUrlBox" id="shortUrlBox" readonly
+                                style="width: 640px; height: 42px;" placeholder="short url"
+                                value="localhost:5000/<%=shortUrls.short%>">
+                        </div>
+                        <div style="margin-left: 60px; margin-top: 37px;">
+                            <input type="submit" onclick="copyToClipboard()"
+                                style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                class="btn" value="Copy" />
+                        </div>
+                    </div>
+                </div>
+                <!--Output Ends Here-->
+
+            </section>
+            <!-- Main field starts -->
         </div>
+        <!--  Card Background Ends -->
+
+
+        <!--Footer Starts here-->
+        <footer class="footer">
+            <div class="footer-left">
+                <img src="logo.png">
+                <h3>Banana.ly</h3>
+                <p>Lengthy links are too BORING, right?
+                    <br>Here, we come with a solution.
+                </p>
+                <h6>Just paste your link here and get the shortest one. Have a fun with us. </h6>
+
+
+                <div class="social-media">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-youtube"></i></a>
+                    <a href=""><i class="fa fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <ul class="footer-right">
+                <li>
+                    <h3>PACKAGES</h3>
+
+                    <ul class="box-footer">
+                        <li><a href="">100 links @25 taka</a></li>
+                        <li><a href="">500 links @100 taka</a></li>
+                        <li><a href="">1k links @150 taka</a></li>
+                        <li><a href="">2k links @250 taka</a></li>
+                        <li><a href="">5k links @500 taka</a></li>
+                    </ul>
+                </li>
+                <li class="features">
+                    <h3>USEFUL LINKS</h3>
+
+                    <ul class="box-footer">
+                        <li><a href="">Statistics</a></li>
+                        <li><a href="">Pricing</a></li>
+                        <li><a href="">Profile</a></li>
+                        <li><a href="">Payment</a></li>
+                        <li><a href="">Packages</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>ADDRESS</h3>
+
+                    <ul class="box-footer">
+                        <li><a href="">Level-4, 34, Awal Center</a></li>
+                        <li><a href="">Banani, Dhaka</a></li>
+                        <li><a href="">www.banana-ly.com</a></li>
+                        <li><a href="">Email: www.banana-ly@gmail.com</a></li>
+                        <li><a href="">Mobile: 017XX-XXX XXX</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="footer-bottom">
+                <p>All rights reserved by banana.ly</p>
+            </div>
+        </footer>
+        <!--Footer Ends here-->
     </div>
+    <!-- Fixed Background Ends -->
+
+
+
+
+    <!-- Script for sign in Button Starts-->
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <!-- Script for sign in Button Ends-->
+
+
+    <!-- Copy Button Starts-->
+
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("shortUrlBox");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied to Clipboard: " + copyText.value);
+        }
+    </script>
+    <!-- Copy Button Ends -->
+
+
 </body>
+
 </html>
