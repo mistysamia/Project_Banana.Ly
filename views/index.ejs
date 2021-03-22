@@ -71,14 +71,14 @@
 
                             <div class="form__field form__field--submit">
                                 <div style="margin-left: 60px;">
-                                    <input type="submit" id="btnnn" onclick="shrink()"
+                                    <input type="submit"  
                                         style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
                                         class="btn" value="Shrink" />
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center">
+                            <!-- <div class="d-flex justify-content-center">
                                 <input class="l" type="checkbox">
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
@@ -88,14 +88,14 @@
                 <div>
                     <div class="col-md-4  d-flex">
                         <div>
-                            <output type="text" name="shortUrlBox" id="shortUrlBox" readonly
+                            <input type="text" name="shortUrlBox" id="shortUrlBox" readonly
                                 style="width: 640px; height: 42px;" placeholder="short url"
                                 value="localhost:5000/<%=shortUrls.short%>">
                         </div>
-                        <div style="margin-left: 60px; margin-top: 37px;">
-                            <input type="submit" onclick="copyToClipboard()"
+                        <div style="margin-left: 60px;">
+                            <button onclick="copyToClipboard()"
                                 style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                class="btn" value="Copy" />
+                                class="btn" > Copy </button>
                         </div>
                     </div>
                 </div>
