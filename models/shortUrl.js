@@ -36,8 +36,9 @@ const shortUrlSchema = mongoose.Schema({
 shortUrlSchema.index({
     full: 1,
     userEmail: 1,
+    monetized: 1,
     }, {
-    unique: true,
+    unique: false,
 });
 
 module.exports = mongoose.model('ShortUrl', shortUrlSchema)
