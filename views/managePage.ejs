@@ -11,7 +11,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="userHome.css">
+    <link rel="stylesheet" href="managePageStyle.css">
     <title>Home Page</title>
 </head>
 
@@ -34,27 +34,12 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Wallets</a>
                             </li>
-                            <li class="nav-item ">
-                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
-                                <form method="POST" action="managePage" class="manage">
-                                 
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Links</button> 
-                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
-                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
-                                </form>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">
-                                        <%= User.name %>
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <%= User.userEmail %>
-                                    </a>
-                                    <a class="dropdown-item" href="/"> Log out </a>
+                                    <a class="dropdown-item" href="#">Misty Pro</a>
+                                    <a class="dropdown-item" href="#">Misty Hooman</a>
+                                    <a class="dropdown-item" href="#">Misty !Monkey</a>
                                 </ul>
                             </li>
                         </ul>
@@ -66,63 +51,18 @@
 
 
 
-            <!-- Main field starts -->
-            <section class="box" style="margin-bottom: 130px;">
-                <!-- <div>
-            <input type="text" name="" required="required">
-            <span>Give Me the Link</span>
-            <div class="d-flex justify-content-center">
-                <input class="l" type="checkbox">
+
+        
+              
+            <div class="togggleflip" onclick="togglefun()">
+                <div id="toggle"></div>
             </div>
-        </div>-->
-                <!--Input Starts Here-->
-                <div>
-                    <form class="my-4 form-inline" action="uShrink" method="POST">
-                        <div class="col-md-4  d-flex">
-                            <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                            <div>
-                                <input type="text" name="fullUrl" id="fullUrl" placeholder="" required
-                                    style="width: 640px;">
-                                <span> Give Me the Link </span>
-                            </div>
-
-                            <div class="form__field form__field--submit">
-                                <div style="margin-left: 60px;">
-                                    <input type="submit"
-                                        style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                        class="btn" value="Shrink" />
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <input class="l" type="checkbox" value="monetized" name="toggle">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!--Input Ends Here-->
-
-                <!--Output Starts Here-->
-                <div>
-                    <div class="col-md-4  d-flex">
-                        <div>
-                            <input type="text" name="shortUrlBox" id="shortUrlBox" readonly
-                                style="width: 640px; height: 42px;" placeholder="short url"
-                                value="localhost:5000/<%=shortUrls.short%>">
-                        </div>
-                        <div style="margin-left: 60px; ">
-                            <button type="submit" onclick="copyToClipboard()"
-                                style="margin-left: -30px;  font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                class="btn" value="Copy">Copy</button>
-                        </div>
-                    </div>
-                </div>
-                <!--Output Ends Here-->
-
-            </section>
-            <!-- Main field starts -->
-
 
             <section class="container section_io ">
+
+           
+          
+
                 <!--Table Starts-->
                 <div>
                     <table>
@@ -161,8 +101,7 @@
                         <p style="margin-left: -40px; margin-top: -15px;">More</p>
                         <span>
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
-                                style="margin-left: 60px; margin-top: 40px;" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <path class="one"
                                         d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
@@ -181,7 +120,6 @@
                 <!-- More Button Ends -->
 
             </section>
-
 
 
         </div>
@@ -250,20 +188,6 @@
         <!-- Footer Background Ends -->
     </div>
     <!-- Fixed Background Ends -->
-
-
-    <!-- Copy Button Starts-->
-
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("shortUrlBox");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Copied to Clipboard: " + copyText.value);
-        }
-    </script>
-    <!-- Copy Button Ends -->
 
 
     <!-- For Nav Bar Start -->
