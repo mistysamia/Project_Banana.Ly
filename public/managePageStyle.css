@@ -142,8 +142,6 @@ body {
 
 
 
-
-
 /* Toggle  Button Ends */
 
 
@@ -153,7 +151,7 @@ body {
   margin-top: 25%;
   background-color: rgb(253, 215, 159);
   height: 200px;
- 
+  background-image: url("back.png");
 }
 /* Background of table Ends */
 
@@ -170,6 +168,7 @@ table{
   margin-top: 40px;
   border-collapse: collapse;
   width: 800px;
+
   height: 200px;
   border: 1px solid orange;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.452);
@@ -177,6 +176,7 @@ table{
 tr{
   transition: all .2s ease-in;
   cursor: pointer;
+
 }
 th, td{
   padding: 12px;
@@ -185,6 +185,7 @@ th, td{
 }
 #header{
   background-color: rgb(248, 188, 97);
+
   columns: white;
 }
 h1{
