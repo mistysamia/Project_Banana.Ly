@@ -134,6 +134,7 @@ app.post('/editUserInfo', async (req, res) => {
 //     }
 // })
 
+
 app.get('/:shortUrl', async (req, res) => {
     const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl })
     if (shortUrl == null)
