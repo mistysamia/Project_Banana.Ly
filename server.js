@@ -82,7 +82,10 @@ app.post('/uShrink', async (req, res) => {
 })
 app.post('/managePage', async (req, res) => {
     res.render('managePage')
+})
 
+app.post('/walletPage', async (req, res) => {
+    res.render('walletPage')
 })
 
 
