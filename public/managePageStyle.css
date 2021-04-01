@@ -91,19 +91,6 @@ body {
 }
 /*  Card Background  Ends*/
 
-/*  Header starts */
-.header{
-  display: flex;
-  background: url("111.png") no-repeat center;
-  
-  height: 60vh;
-  color: #fff;
-  min-height: 200px;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
-}
-/*  Header Ends */
 
 
 /* Toggle  Button Starts */
@@ -203,6 +190,92 @@ tr:hover{
 }
 /* Table Ends */
 
+
+
+
+/* Bar Starts */
+
+.bar1wrapper{
+  position: relative;
+  display: none;
+  margin-left: 150px;
+  margin-top: 100px;
+  margin-bottom: -7.4%;
+  transform: translate(-50%,-50%);
+}
+.bar2wrapper{
+    position: relative;
+    margin-left:40px;
+    display: none;
+    margin-top: 100px;
+    margin-bottom: -7.4%;
+    transform: translate(-50%,-50%);
+}
+.bar3wrapper{
+    position: relative;
+    margin-left:40px;
+    display: none;
+    margin-top: 100px;
+    margin-bottom: -7.4%;
+    transform: translate(-50%,-50%);
+}
+.bar4wrapper{
+    position: relative;
+    margin-left:40px;
+    display: none;
+    margin-top: 100px;
+    margin-bottom: -7.4%;
+    transform: translate(-50%,-50%);
+}
+.box{
+  position: relative;
+  height: 200px;
+  width: 220px;
+  border-radius: 25px;
+  box-shadow: 0 0 75px rgba(255, 164, 28, 0.2);
+  overflow: hidden;
+  background: rgba(255, 153, 0, 0.2);
+  border: 2px solid rgba(255, 136, 0, 0.192);
+}
+.logo img{
+  position: absolute;
+  top:75px;
+  left: 25px;
+  width: 906px;
+  height: auto;
+}
+.c-number{
+  position: a;
+  left: 40px;
+  bottom: 65px;
+  color: #fff;
+  font-size: 25px;
+}
+
+.c-name{
+  position: absolute;
+  font-size: 16px;
+  left: 40px;
+  bottom: 35px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.date-1{
+  position: absolute;
+  font-size: 16px;
+  bottom: 35px;
+  right: 110px;
+  color: #fff;
+}
+.date-2{
+  position: absolute;
+  font-size: 16px;
+  bottom: 35px;
+  right: 40px;
+  color: #fff;
+}
+
+/* Bar Ends */
 
 
 

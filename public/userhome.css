@@ -124,7 +124,7 @@ body {
   margin-top: 25%;
   background-color: rgb(253, 215, 159);
   height: 200px;
- 
+  background-image: url("back.png");
 }
 
 /* Background of table Ends */

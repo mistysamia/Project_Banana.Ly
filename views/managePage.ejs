@@ -49,22 +49,16 @@
             <!--    Nav Bar Ends Here -->
 
 
-
-
-
-        
-                 <div class="togggleflip" onclick="togglefun()">
-                    <div id="toggle"></div>
-                </div>
-
+            <div class="togggleflip" onclick="togglefun()">
+                <div id="toggle"></div>
+            </div>
 
             <section class="container section_io ">
 
-             
-          
+
 
                 <!--Table Starts-->
-                <div>
+                <div id="tableToggle">
                     <table>
                         <tr id="header">
                             <th>Short URL</th>
@@ -95,6 +89,53 @@
                 </div>
 
                 <!--Table Ends-->
+                <!--Bar Starts-->
+                <div class="d-flex" id="PriceBarToggle" >
+                    <div class="bar1wrapper" id="PriceBarToggle1"  >
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                    <div class="bar2wrapper"  id="PriceBarToggle2">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+
+
+                    <div class="bar3wrapper"  id="PriceBarToggle3">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                    <div class="bar4wrapper"  id="PriceBarToggle4">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Bar Ends-->
                 <!-- More Button Starts -->
                 <div class="wrapper">
                     <button class="cta" href="#">
@@ -209,18 +250,48 @@
         function togglefun() {
             var toggle = document.getElementById("toggle").getAttribute("style");
             if (toggle == "transform: translateX(0px);") {
-                document.getElementById("toggle").style.transform = "translateX(73px)";
-                document.getElementById("bodybg").style.backgroundColor = "#615c5c";
-                document.getElementById("heading").style.color = "#fff";
+                document.getElementById("toggle").style.transform = "translateX(73px)";  
+                ShowPriceBar();
             }
             else {
                 document.getElementById("toggle").style.transform = "translateX(0px)";
-                document.getElementById("bodybg").style.backgroundColor = "#dbd7d7";
-                document.getElementById("heading").style.color = "#000";
+               ShowTable();
             }
         }
+
+        function ShowPriceBar() {
+            document.getElementById('PriceBarToggle').style.display = "block";
+            document.getElementById('PriceBarToggle1').style.display = "block";
+            document.getElementById('PriceBarToggle2').style.display = "block";
+            document.getElementById('PriceBarToggle3').style.display = "block";
+            document.getElementById('PriceBarToggle4').style.display = "block";
+            document.getElementById('tableToggle').style.display = "none";
+        }
+        function ShowTable() {
+           document.getElementById('PriceBarToggle').style.display = "none";
+           document.getElementById('PriceBarToggle1').style.display = "none";
+           document.getElementById('PriceBarToggle2').style.display = "none";
+           document.getElementById('PriceBarToggle3').style.display = "none";
+           document.getElementById('PriceBarToggle4').style.display = "none";
+           document.getElementById('tableToggle').style.display = "block";
+           console.log("here");
+       }
     </script>
     <!--For Toggle Button Ends -->
+
+
+
+    <!-- For Pricing Bar Starts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+
+    <script src="tilt.jquery.js">
+    </script>
+    <script>
+        const tilt = $('.box').tilt();
+
+    </script>
+    <!-- For Pricing Bar Ends-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
