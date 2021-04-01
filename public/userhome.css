@@ -48,6 +48,28 @@ body {
     background-color:rgba(182, 180, 59, 0);
   }
   
+  .walletbtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
+  
+  .walletbtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
+
+
   .dropdown-menu{
       border:none;
   }

@@ -32,7 +32,14 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Wallets</a>
+                                <form method="POST" action="walletPage" class="wallet">
+                                 
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="walletbtn">Wallets</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
                             </li>
                             <li class="nav-item ">
                                 <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
@@ -48,16 +55,13 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">
-                                        <%= User.name %>
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <%= User.userEmail %>
-                                    </a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
+                                    <a class="dropdown-item">  <%= User.userEmail %></a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
                         </ul>
+                        
                     </div>
                 </nav>
             </div>
