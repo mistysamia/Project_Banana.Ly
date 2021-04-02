@@ -36,7 +36,27 @@ body {
   .dropdown-menu{
       border:none;
   }
+  .managebtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
   
+  .managebtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
+
   .dropdown-item{
   
       padding: 12px 40px 12px 20px;
@@ -170,14 +190,14 @@ body {
 
 /* Table Starts */
 table{
-  margin-left: 150px;
+  margin-left: 90px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   left: 50%;
   top: 50%;
   margin-top: 40px;
   border-collapse: collapse;
-  width: 800px;
+  width: 900px;
 
   height: 200px;
   border: 1px solid orange;

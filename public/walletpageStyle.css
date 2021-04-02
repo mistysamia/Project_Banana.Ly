@@ -38,6 +38,27 @@ body {
       border:none;
   }
   
+
+  .managebtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
+  
+  .managebtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
   .dropdown-item{
   
       padding: 12px 40px 12px 20px;
@@ -109,27 +130,13 @@ body {
 /*  Card Background  Starts*/
 #CardBackground {
   background-color: rgb(248, 220, 97);
-  background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97));
+  background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97),#f89148);
   border-radius: 2px;
-  height: 1040px;
+  height: 1440px;
 
   box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
 }
 /*  Card Background  Ends*/
-
-/*  Header starts */
-.header{
-  display: flex;
-  background: url("111.png") no-repeat center;
-  
-  height: 60vh;
-  color: #fff;
-  min-height: 200px;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
-}
-/*  Header Ends */
 
 
 
@@ -463,6 +470,116 @@ path.two {
 
 /* More Button Ends */
 
+
+
+/* Price Details Bar starts */
+.innertext{
+  color:rgb(255, 81, 0);
+  font-size: 330%;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe607, 0 0 40px #e66800, 0 0 50px #e6bc00, 0 0 60px #fa3908, 0 0 70px #e64100;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff582e, 0 0 40px #ffc62b, 0 0 50px #eeb61b, 0 0 60px #ff481a, 0 0 70px #ff460d, 0 0 80px #ff5c2a;
+  }
+}
+.flip-box{
+  transform-style: preserve-3d;
+  perspective:1000px;
+  cursor:pointer;
+  width: 250px;
+  margin-left: 15%;
+  margin-top:20%;
+}
+
+.flip-box-front,
+.flip-box-back{
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  height: 200px;
+  background-image: url('moneyMonkey.png');
+  transition:transform 0.7s cubic-bezier(.4,.2,.2,1);
+  backface-visibility: hidden;
+}
+
+
+.flip-box-front{
+transform:rotateY(0deg);
+transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-front{
+transform:rotateY(-180deg);
+transform-style: preserve-3d;
+}
+
+.flip-box-back{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+transform: rotateY(180deg);
+transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-back{
+transform:rotateY(0deg);
+transform-style: preserve-3d;
+}
+
+.flip-box .inner{
+position:absolute;
+left:0;
+width:100%;
+padding:60px;
+outline:1px solid transparent;
+perspective: inherit;
+z-index: 2;
+transform: translateY(-50%)translateZ(60px) scale(.94);
+top:50%;
+}
+
+.flip-box-header{
+font-size:30px;
+
+}
+
+.flip-box p{
+font-size:20px;
+line-height: 1.5rem;
+
+}
+
+.flip-box-img{
+margin-top:25px;
+}
+
+.flip-box-button{
+background-color: transparent;
+border:2px solid #fff;
+border-radius: 2px;
+color:#fff;
+cursor:pointer;
+font-size:20px;
+font-weight: bold;
+margin-top:25px;
+padding:15px 20px;
+text-transform: uppercase;
+
+
+}
+
+/*Price Details Bar ends */
+
+
+
 /* Footer starts here */
 
 
@@ -568,4 +685,9 @@ h2{
 }
 
 /* Footer Ends here */
+
+
+
+
+
 

@@ -25,7 +25,7 @@
 
             <!--    Nav Bar starts Here -->
 
-            <div class="container-fluid p-0">
+             <div class="container-fluid p-0">
                 <nav class="navbar navbar-expand-lg my-navbar">
                     <a class="navbar-brand" href="#">
                         <img class="image_logo" src="logo.png" style="height: 60px; width:121px" alt="">
@@ -33,20 +33,35 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
-                            <li class="nav-item active">
-                                <form method="POST" action="walletPage" class="wallet">
-                                 
+
+                            <li class="nav-item ">
+                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
+                                <form method="POST" action="userHome" class="userHome">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                                     <button type="submit" 
                                     style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="walletbtn">Wallets</button> 
+                                    class="managebtn">Homepage</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
+                            </li>
+                            <li class="nav-item ">
+                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
+                                <form method="POST" action="managePage" class="manage">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="managebtn">Links</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Misty Pro</a>
-                                    <a class="dropdown-item" href="#">Misty Hooman</a>
-                                    <a class="dropdown-item" href="#">Misty !Monkey</a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
+                                    <a class="dropdown-item"> <%= User.userEmail %> </a>
+                                    <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
                         </ul>
@@ -55,17 +70,27 @@
             </div>
             <!--    Nav Bar Ends Here -->
 
-            <!--Cash Out Section Starts-->
-            <div class="blog-slider">
+             <!--Cash Out Section Starts-->
+             <div class="blog-slider">
                 <div class="blog-slider__wrp swiper-wrapper">
                     <div class="blog-slider__item swiper-slide">
                         <div class="blog-slider__img">
                             <img src="CashOut.jpg">
                         </div>
                         <div class="blog-slider__content">
-                            <div class="blog-slider__title"> Current Balance : 00</div>
+                            <%
+                                var totalOut = 0.0 ;
+                                Txns.forEach(element => {
+                                    totalOut += element.Amount ;
+                                }); 
+                                var totalIn = 0.0 ;
+                                urlList.forEach(element => {
+                                    totalOut += element.clicks * 0.1 ;
+                                }); 
+                            %> 
+                            <div class="blog-slider__title">  Current Balance : <%= (totalIn-totalOut).toFixed(2) %> </div>
                             <!-- <div class="blog-slider__text"> 00 </div> -->
-                            <button class="blog-slider__button">Cash Out?</button>
+                            <button  class="blog-slider__button">CASH OUT??</button>
                         </div>
                     </div>
                 </div>
@@ -82,22 +107,24 @@
                             <th>Medium</th>
                             <th>Amount</th>
                         </tr>
+                        <tr>
+                        <% var cnt = 0 %>
+                        <% Txns.forEach(element => { %>
+                            <td><%= element.date %> </td>
+                            <td><%= element.amount %> </td>
+                            <td><%= element.gateway %> </td>
+                            <% cnt++ %> 
+                        <% }); %>
+                        </tr>
+                        
+                        <% for(var i = 0 ; i < 3 - cnt ; i++){ %> 
+                        <tr>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                        </tr>
+                        <% } %> 
 
-                        <tr>
-                            <td>21/12/2020</td>
-                            <td>bKash</td>
-                            <td>TK. 2000</td>
-                        </tr>
-                        <tr>
-                            <td>12/11/2020</td>
-                            <td>Rocket</td>
-                            <td>Tk. 1000</td>
-                        </tr>
-                        <tr>
-                            <td>11/05/2020</td>
-                            <td>Nagad</td>
-                            <td>Tk. 2500</td>
-                        </tr>
                     </table>
                 </div>
 
@@ -126,11 +153,57 @@
                 </div>
                 <!-- More Button Ends -->
 
+
+                <!-- Price Details bar starts -->
+                <div class="d-flex">
+                    <div class="box-item col-md-4">
+                        <div class="flip-box">
+                            <div class="flip-box-front text-center">
+                                <div class="inner  ">
+                                    <h3 class="innertext" style="margin-left: -5%;">bKash</h3>
+                                </div>
+                            </div>
+                            <div class="flip-box-back text-center" style="background-image: url('bkash.png');">
+                                <div class="inner">
+                                    <img src="arrow.png" alt="" class="flip-box-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-item col-md-4">
+                        <div class="flip-box">
+                            <div class="flip-box-front text-center">
+                                <div class="inner  ">
+                                    <h3 class="innertext" style="margin-left: -14%;">NAGAD</h3>
+                                </div>
+                            </div>
+                            <div class="flip-box-back text-center" style="background-image: url('nagad.png');">
+                                <div class="inner ">
+                                    <img src="arrow.png" alt="" class="flip-box-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-item col-md-4">
+                        <div class="flip-box">
+                            <div class="flip-box-front text-center">
+                                <div class="inner  ">
+                                    <h3 class="innertext">VISA</h3>
+                                </div>
+                            </div>
+                            <div class="flip-box-back text-center" style="background-image: url('visa.png');">
+                                <div class="inner ">
+                                    <img src="arrow.png" alt="" class="flip-box-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Price Details bar ends -->
+
             </section>
-
-
         </div>
-        <!--  Card Background  Starts -->
+        <!--  Card Background  Ends -->
 
         <!-- Footer Background Ends -->
         <footer class="footer">

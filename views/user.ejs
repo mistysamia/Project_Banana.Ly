@@ -11,7 +11,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../userhomeStyle.css">
+    <link rel="stylesheet" href="../userHomeStyle.css">
     <title>User Page</title>
 </head>
 
@@ -19,7 +19,7 @@
     <!-- Fixed Background Starts -->
     <div class="container">
         <!--  Card Background  Starts -->
-        <div id="CardBackground">
+        <div id="UserCardBackground">
 
             <!--    Nav Bar starts Here -->
 
@@ -32,16 +32,35 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Wallets</a>
+                                <form method="POST" action="../wallet">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Wallet</button>
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="#">Links</a>
+                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
+                                <form method="POST" action="../managePage" class="manage">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Links</button>
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
-                                    <a class="dropdown-item"> <%= User.userEmail %> </a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
+                                        <%= User.name %>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <%= User.userEmail %>
+                                    </a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
@@ -59,21 +78,30 @@
 
 
             <!-- <section class="container section_io "> -->
-                <form method="POST" action="../editUserInfo" style="padding-left: 20%; padding-right: 20%; padding-top: 5%;">
-                    <label for="name">Name</label>
-                    <input type="text" id = "name" name = "name" readonly value="<%= User.name %>" required>
-                    <label for="email">Email</label>
-                    <input type="email" id = "email" name = "email" readonly value="<%= User.userEmail %>">
-                    <label for="old_password">old password</label>
-                    <input type="password" id = "old_password" readonly placeholder="old password" onchange="check_pass();" required>
-                    <label for="new_password">new password</label>
-                    <input type="password" id = "new_password" name = "new_password" readonly placeholder="new password" onchange="check_pass();" required>
-                    <label for="confirm_password">confirm password</label>
-                    <input type="password" id = "confirm_password" readonly placeholder="confirm password" onchange="check_pass();" required>
-                    <button class="btn btn-primary" id="editButton" onclick="return turnOnSaveButton()">Edit</button>
-                    <button class="btn btn-primary" id="cancelButton" onclick="return cancelEdit()" style="visibility: hidden;">cancel</button>
-                    <button class="btn btn-primary" id="saveButton" type="submit" style="visibility: hidden;">save</button>
-                </form>
+            <image src="../hey.png" class="userImg">
+            </image>
+            <form method="POST" action="../editUserInfo" class="UserInput">
+
+                <label for="name" class="UserfiledLabel">Name</label>
+                <input type="text"  id="name" name="name" readonly value="<%= User.name %>"
+                    required>
+                <label for="email" class="UserfiledLabel">Email</label>
+                <input type="email"  id="email" name="email" readonly
+                    value="<%= User.userEmail %>" required>
+                <label for="old_password" class="UserfiledLabel">old password</label>
+                <input type="password"  id="old_password" readonly placeholder="old password"
+                    onchange="check_pass();" required>
+                <label for="new_password" class="UserfiledLabel">new password</label>
+                <input type="password"  id="new_password" name="new_password" readonly
+                    placeholder="new password" onchange="check_pass();" required>
+                <label for="confirm_password" class="UserfiledLabel">confirm password</label>
+                <input type="password"  id="confirm_password" readonly
+                    placeholder="confirm password" onchange="check_pass();" required>
+                <button class="btn btn-primary" id="editButton" onclick="return turnOnSaveButton()">Edit</button>
+                <button class="btn btn-primary" id="cancelButton" onclick="return cancelEdit()"
+                    style="visibility: hidden;">cancel</button>
+                <button class="btn btn-primary" id="saveButton" type="submit" style="visibility: hidden;">save</button>
+            </form>
             <!-- </section> -->
             <script>
                 function turnOnSaveButton() {
@@ -85,20 +113,20 @@
                     var old_password = document.getElementById("old_password");
                     var new_password = document.getElementById("new_password");
                     var confirm_password = document.getElementById("confirm_password");
-                    
-                    saveButton.style.visibility = "visible" ;
-                    cancelButton.style.visibility = "visible" ;
-                    editButton.style.visibility = "hidden" ;
-                    name.readOnly  = false ;
+
+                    saveButton.style.visibility = "visible";
+                    cancelButton.style.visibility = "visible";
+                    editButton.style.visibility = "hidden";
+                    name.readOnly = false;
                     // email.readOnly  = false ;
-                    old_password.readOnly  = false ;
-                    new_password.readOnly  = false ; 
-                    confirm_password.readOnly  = false ; 
-                    return false ;
+                    old_password.readOnly = false;
+                    new_password.readOnly = false;
+                    confirm_password.readOnly = false;
+                    return false;
                 }
-                function cancelEdit(){
+                function cancelEdit() {
                     location.reload();
-                    return false ;
+                    return false;
                 }
                 function check_pass() {
                     if (document.getElementById('new_password').value == document.getElementById('confirm_password').value

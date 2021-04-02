@@ -32,20 +32,23 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
                             <li class="nav-item active">
-                                <form method="POST" action="walletPage" class="wallet">
-                                 
+                                <form method="POST" action="walletPage" >
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                                     <button type="submit" 
                                     style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="walletbtn">Wallets</button> 
+                                    class="walletbtn">Wallet</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item ">
-                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
                                 <form method="POST" action="managePage" class="manage">
-                                 
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                                     <button type="submit" 
                                     style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
                                     class="managebtn">Links</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item dropdown">
@@ -124,38 +127,60 @@
 
 
             <section class="container section_io ">
-                <!--Table Starts-->
-                <div>
-                    <table>
-                        <tr id="header">
-                            <th>Short URL</th>
-                            <th>Main URL</th>
-                            <th>Total Hit</th>
-                            <th>Revenue</th>
+            <!--Table Starts-->
+            <div>
+                <table>
+                    <tr id="header">
+                        <th>ShortURL</th>
+                        <th>MainURL</th>
+                        <th>Clicks</th>  
+                        <th>Creation Time</th>
+                        <th>Revenue</th>
+                        <th>M</th>
+                    </tr>
+                    <% var cnt = 0 ; %>
+                    <% urlList.forEach(element => { %>
+                        <tr>
+                            <td><a href="localhost:5000/<%= element.short %>"><%= element.short %> </a></td>
+                            <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
+                            <td>
+                                <!-- this content can be very large... -->
+                                <div style="overflow:hidden; height: 20px;">
+                                    <a href="<%= element.full %>"><%= element.full %> </a>
+                                </div>
+                            </td>
+                            <td><%= element.clicks %> </td>
+                            <td>
+                                <!-- this content can be very large... -->
+                                <div style="overflow:hidden; height: 20px;">
+                                    <%= element.creationTime %>
+                                </div>
+                            </td>
+                            <td><%= ((element.clicks * 0.1) * element.monetized).toFixed(2) %> TK</td>
+                            <td>
+                                <% if(element.monetized == true){ %> 
+                                    <%= 'Y' %> 
+                                <% }else{ %> 
+                                        <%= 'N' %> 
+                                <% } %> 
+                            </td>
                         </tr>
+                        <% cnt++; %> 
+                    <% }); %>
+                    <% for(i = 0 ; i < 3 - cnt ; i++){ %> 
+                        <tr>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                            <td>NIL</td>
+                        </tr>
+                    <% } %> 
+                </table>
+            </div>
 
-                        <tr>
-                            <td>localhost/abcd</td>
-                            <td>www.codeforces.com</td>
-                            <td>83</td>
-                            <td>TK. 90</td>
-                        </tr>
-                        <tr>
-                            <td>localhost/efgh</td>
-                            <td>www.codechef.com</td>
-                            <td>67</td>
-                            <td>Tk. 95</td>
-                        </tr>
-                        <tr>
-                            <td>localhost/abcd</td>
-                            <td>www.vjudge.net</td>
-                            <td>113</td>
-                            <td>Tk. 205</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!--Table Ends-->
+            <!--Table Ends-->
                 <!-- More Button Starts -->
                 <div class="wrapper">
                     <button class="cta" href="#">
