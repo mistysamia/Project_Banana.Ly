@@ -12,6 +12,7 @@ body {
 
 /* Nav bar starts */
 
+
 .my-navbar{
   background-color:rgba(0, 0, 0, 0.342);
   }
@@ -23,18 +24,6 @@ body {
       letter-spacing: 2px;
       margin: 0px 10px;
       text-transform: uppercase;
-  }
-  .mega-menu{
-      background-color: transparent;
-  }
-  .dropdown:hover .dropdown-menu{
-      display: block;
-  }
-  .manage .btn-info{
-    color: #3bbfd6;
-  }
-  .dropdown-menu{
-      border:none;
   }
   .managebtn {
     width: 160px;
@@ -56,6 +45,19 @@ body {
   .managebtn:hover {
     background-color:rgba(182, 180, 59, 0);
   }
+  .mega-menu{
+      background-color: transparent;
+  }
+  .dropdown:hover .dropdown-menu{
+      display: block;
+  }
+  .manage .btn-info{
+    color: #3bbfd6;
+  }
+  .dropdown-menu{
+      border:none;
+  }
+
 
   .dropdown-item{
   

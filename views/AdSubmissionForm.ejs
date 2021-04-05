@@ -5,206 +5,291 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AD Submission Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="AdSubmissionForm.css">
-
-
+    <title>Home Page</title>
 </head>
 
 <body>
-    <header class="container sticky-top home_nav">
-        <nav class="navbar navbar-expand-lg navbar-light nav_back ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img class="image_logo" src="logo.png" alt="">
-                </a>
+    <!-- Fixed Background Starts -->
+    <div class="container">
+        <!--  Card Background  Starts -->
+        <div id="CardBackground">
 
-                <div class="d-flex justify-content-end">
+            <!--    Nav Bar starts Here -->
 
-                    <div class="collapse navbar-collapse " id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">WALLET</a>
+            <!--    Nav Bar starts Here -->
+
+            <div class="container-fluid p-0">
+                <nav class="navbar navbar-expand-lg my-navbar">
+                    <a class="navbar-brand" href="#">
+                        <img class="image_logo" src="logo.png" alt="">
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
+                        <ul class="navbar-nav m-auto">
+                            <li class="nav-item active">
+                                <form method="POST" action="userHome">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">HomePage</button>
+                                </form>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">LINKS</a>
+                            <li class="nav-item active">
+                                <form method="POST" action="walletPage">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Wallet</button>
+                                </form>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">PROFILE</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
+                                <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
+                                        <%= User.name %>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <%= User.userEmail %>
+                                    </a>
+                                    <a class="dropdown-item" href="/"> Log out </a>
+                                </ul>
                             </li>
                         </ul>
                     </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
+                </nav>
             </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="container section_io">
+            <!--    Nav Bar Ends Here -->
 
-            <div class="row d-flex align-items-center ms-3">
-                <div class="col-md-6">
-                    <div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Embedded Link</label>
-                            <input type="text" class="form-control" id="embedded_link" aria-describedby="emailHelp" placeholder="Place you embedded link here">
+
+
+            <section class="box">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="UserfiledLabel">Embedded Link</label>
+                    <input type="text" class="form-control" id="embedded_link" aria-describedby="emailHelp"
+                        placeholder="Place you embedded link here" style="height: 50px; width: 750px;">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="UserfiledLabel">Redirected Link</label>
+                    <input type="url" class="form-control" id="redirected_link" aria-describedby="emailHelp"
+                        placeholder="Place you redirected link here" style="height: 50px; width: 750px;">
+                </div>
+
+
+
+
+            </section>
+
+            <!--Input Field Ends Here -->
+
+            <!-- Price Table Starts here -->
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2 class="tableTitle">Billing <b>Summary</b></h2>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Redirected Link</label>
-                            <input type="url" class="form-control" id="redirected_link" aria-describedby="emailHelp" placeholder="Place you redirected link here">
-                        </div>
-                        <button onclick="billCalculation('video' , 250 )" class="buttons_pricing">Video</button>
-                        <button onclick="billCalculation('banner' , 200 )" class="buttons_pricing">Banner</button>
-                        <button onclick="billCalculation('popup' , 150 )" class="buttons_pricing">New Tab</button>
-                        <button onclick="billCalculation('text' , 100 )" class="buttons_pricing">Small Box</button>
                     </div>
                 </div>
-                
-                <div class="billing-form">
-                    <h4 style="text-align: center; margin-bottom: 5px;">Billing summary</h4>
-                    <div class="col-md-12">
-                        <div class="calculations">
-                            
-                            <div class="amount">
-                                <div class="left">
-                                    <p>Videos</p>
-                                </div>
-                                <div class="Center">
-                                    <p id="no_of_video">0</p>
-                                </div>
-                                <div class="right">
-                                    <p>Tk. <span id="total_amount_video">00</span> </p>
-                                </div>
-                            </div>
-                            <div class="amount">
-                                <div class="left">
-                                    <p>Banners</p>
-                                </div>
-                                <div>
-                                    <p id="no_of_banner">0</p>
-                                </div>
-                                <div class="right">
-                                    <p>Tk. <span id="total_amount_banner">00</span> </p>
-                                </div>
-                            </div>
-                            <div class="amount">
-                                <div class="left">
-                                    <p>Popup ADs</p>
-                                </div>
-                                <div>
-                                    <p id="no_of_popup">0</p>
-                                </div>
-                                <div class="right">
-                                    <p>Tk. <span id="total_amount_popup">00</span> </p>
-                                </div>
-                            </div>
-                            <div class="amount">
-                                <div class="left">
-                                    <p>Text</p>
-                                </div>
-                                <div>
-                                    <p id="no_of_text">0</p>
-                                </div>
-                                <div class="right">
-                                    <p>Tk. <span id="total_amount_text">00</span> </p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="amount">
-                                <div class="left">
-                                    <h4>Total</h4>
-                                </div>
-                                <div class="right">
-                                    <p>Tk. <span id="total_bill">00</span> </p>
-                                </div>
-                            </div>
-                        </div>
-                        <form method="POST", action="payment">
-                            <input type="hidden" name = "email" value = "<%= User.userEmail %>" >
-                            <input type="hidden" name = "ads_ar" value = "asdf" id = "ads_ar">
-                            <input type="submit" id="payment_btn" class="btn-style" value = "Pay now">
-                        </form>
-                    </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="tableColName">
+                            <th>Serial</th>
+                            <th>Category</th>
+                            <th>&nbsp;&nbsp;Status</th>
+                            <th>Total&nbsp;Bill</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr data-status="active">
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;1</td>
+                            <td class="tbl_txt">
+                                <p>&nbsp;&nbsp;&nbsp;Videos</p>
+                            </td>
+                            <td class="tbl_txt"><span class="btn btn-danger 1" id="add1">
+                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="badge" class="tbl_txt_lstRow" id="no_of_video">0 </span></span></td>
+
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_video">00</span>
+                            </td>
+                            <td> <button onclick="billCalculation('video' , 250 )" class="add_btn">
+                                    <span class="add_front"> ADD HERE </span></button></td>
+                        </tr>
+
+
+                        <tr data-status="active">
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;2</td>
+                            <td class="tbl_txt">
+                                <p>&nbsp;&nbsp;Banners</p>
+                            </td>
+                            <td class="tbl_txt"><span class="btn btn-danger 2" id="add2">
+                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="badge" class="tbl_txt_lstRow" id="no_of_banner">0 </span></span></td>
+
+
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk: <span id="total_amount_banner">00</span>
+                            </td>
+                            <td> <button onclick="billCalculation('banner' , 200 )" class="add_btn">
+                                    <span class="add_front">ADD HERE </span></button></td>
+                        </tr>
+
+
+                        <tr data-status="active">
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;3</td>
+                            <td class="tbl_txt">
+                                <p>PopUp ADs</p>
+                            </td>
+                            <td class="tbl_txt"><span class="btn btn-danger 3" id="add3">
+                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="badge" id="no_of_popup" class="tbl_txt_lstRow">0</span></span></td>
+
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_popup">00</span>
+                            </td>
+                            <td> <button onclick="billCalculation('popup' , 150 )" class="add_btn">
+                                    <span class="add_front"> ADD HERE </span></button></td>
+                        </tr>
+
+
+
+                        <tr data-status="active">
+
+
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;4</td>
+                            <td class="tbl_txt">
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</p>
+                            </td>
+                            <td class="tbl_txt"><span class="btn btn-danger 4" id="add4">
+                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="badge" id="no_of_text" class="tbl_txt_lstRow">0</span></span></td>
+
+                            <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_text">
+                                    00</span> </td>
+                            <td> <button onclick="billCalculation('text' , 100 )" class="add_btn">
+                                    <span class="add_front"> ADD HERE</span></button></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th class="tbl_lastrow_txt">Total Bill</th>
+                            <th></th>
+                            <th></th>
+                            <th class="tbl_lastrow_txt">&nbsp;&nbsp;Tk : <span id="total_bill">00</span> </th>
+                            <td>
+                                <form method="POST" , action="payment">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>">
+                                    <input type="hidden" name="ads_ar" value="asdf" id="ads_ar">
+                                    <input type="submit" id="payment_btn" class="pay_btn" value="Pay now">
+                                </form>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- Price Table Ends here -->
+
+        </div>
+        <!--  Card Background  Starts -->
+
+        <!-- Footer Background Ends -->
+        <footer class="footer">
+            <div class="footer-left">
+                <img src="logo.png">
+                <h3>Banana.ly</h3>
+                <p>Lengthy links are too BORING, right?
+                    <br>Here, we come with a solution.
+                </p>
+                <h6>Just paste your link here and get the shortest one. Have a fun with us. </h6>
+
+
+                <div class="social-media">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-youtube"></i></a>
+                    <a href=""><i class="fa fa-whatsapp"></i></a>
                 </div>
-                
             </div>
-            
+            <ul class="footer-right">
+                <li>
+                    <h3>PACKAGES</h3>
 
-        </section>
+                    <ul class="box-footer">
+                        <li><a href="">100 links @25 taka</a></li>
+                        <li><a href="">500 links @100 taka</a></li>
+                        <li><a href="">1k links @150 taka</a></li>
+                        <li><a href="">2k links @250 taka</a></li>
+                        <li><a href="">5k links @500 taka</a></li>
+                    </ul>
+                </li>
+                <li class="features">
+                    <h3>USEFUL LINKS</h3>
 
-    </main>
+                    <ul class="box-footer">
+                        <li><a href="">Statistics</a></li>
+                        <li><a href="">Pricing</a></li>
+                        <li><a href="">Profile</a></li>
+                        <li><a href="">Payment</a></li>
+                        <li><a href="">Packages</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>ADDRESS</h3>
 
-    <footer class="footer container">
-        <div class="footer-left">
-            <img src="logo.png">
-            <h3>Banana.ly</h3>
-            <p>Lengthy links are too BORING, right?
-                <br>Here, we come with a solution.
-            </p>
-            <h6>Just paste your link here and get the shortest one. Have a fun with us. </h6>
-
-
-            <div class="social-media">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-instagram"></i></a>
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-youtube"></i></a>
-                <a href=""><i class="fa fa-whatsapp"></i></a>
+                    <ul class="box-footer">
+                        <li><a href="">Level-4, 34, Awal Center</a></li>
+                        <li><a href="">Banani, Dhaka</a></li>
+                        <li><a href="">www.banana-ly.com</a></li>
+                        <li><a href="">Email: www.banana-ly@gmail.com</a></li>
+                        <li><a href="">Mobile: 017XX-XXX XXX</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="footer-bottom">
+                <p>All rights reserved by banana.ly</p>
             </div>
-        </div>
-        <ul class="footer-right">
-            <li>
-                <h3>PACKAGES</h3>
 
-                <ul class="box-footer">
-                    <li><a href="">100 links @25 taka</a></li>
-                    <li><a href="">500 links @100 taka</a></li>
-                    <li><a href="">1k links @150 taka</a></li>
-                    <li><a href="">2k links @250 taka</a></li>
-                    <li><a href="">5k links @500 taka</a></li>
-                </ul>
-            </li>
-            <li class="features">
-                <h3>USEFUL LINKS</h3>
+        </footer>
 
-                <ul class="box-footer">
-                    <li><a href="">Statistics</a></li>
-                    <li><a href="">Pricing</a></li>
-                    <li><a href="">Profile</a></li>
-                    <li><a href="">Payment</a></li>
-                    <li><a href="">Packages</a></li>
-                </ul>
-            </li>
-            <li>
-                <h3>ADDRESS</h3>
+        <!-- Footer Background Ends -->
+    </div>
+    <!-- Fixed Background Ends -->
 
-                <ul class="box-footer">
-                    <li><a href="">Level-4, 34, Awal Center</a></li>
-                    <li><a href="">Banani, Dhaka</a></li>
-                    <li><a href="">www.banana-ly.com</a></li>
-                    <li><a href="">Email: www.banana-ly@gmail.com</a></li>
-                    <li><a href="">Mobile: 017XX-XXX XXX</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="footer-bottom">
-            <p>All rights reserved by banana.ly</p>
-        </div>
-    </footer>
+    <!-- For Nav Bar Start -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    <!-- For Nav Bar End -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
+
+
+    <!--  -->
 
     <script>
 
@@ -222,79 +307,96 @@
 
         //Object Declaration
         var ads = [];
-      
+
         //To convert string to Int data 
-        function stringToInt(id){
+        function stringToInt(id) {
             const stringNum = document.getElementById(id).innerText;
             const num = parseInt(stringNum);
             return num;
         }
 
         //To show the values in PARAGRAPH tag
-        function showOutput(ID, val){
-            
-                document.getElementById(ID).innerText = val;
-        }
-        
+        function showOutput(ID, val) {
 
-        function billCalculation(type, unitPrice){
+            document.getElementById(ID).innerText = val;
+        }
+
+
+        function billCalculation(type, unitPrice) {
             var link_embedded = document.getElementById("embedded_link").value;
             var link_redirected = document.getElementById("redirected_link").value;
-            var ads_ar = document.getElementById("ads_ar") ;
-                
-            if(type == 'video' && link_embedded !="" && link_redirected !=""){
-                
+            var ads_ar = document.getElementById("ads_ar");
+
+            if (type == 'video' && link_embedded != "" && link_redirected != "") {
+
+              
+
+
                 NoOfVideo++;
-                TotalOfVideo = NoOfVideo*unitPrice;
-                TotalBill = TotalBill + TotalOfVideo;
+                if (NoOfVideo == 1) {
+                    document.getElementsByClassName("btn btn-danger 1")[0].className = "btn btn-success";
+                }
+                console.log(NoOfVideo);
+                console.log(link_embedded);
+                console.log(link_redirected);
+                TotalOfVideo = NoOfVideo * unitPrice;
+                TotalBill = TotalBill + unitPrice;
 
                 showOutput("no_of_video", NoOfVideo);
                 showOutput("total_amount_video", TotalOfVideo);
                 showOutput("total_bill", TotalBill);
 
                 let video = {
-                "type": "video",
-                "embedded": link_embedded,
-                "redirected": link_redirected
+                    "type": "video",
+                    "embedded": link_embedded,
+                    "redirected": link_redirected
                 }
                 document.getElementById("embedded_link").value = "";
                 document.getElementById("redirected_link").value = "";
                 ads.push(video);
 
-                ads_ar.value = JSON.stringify(ads) ;
+                ads_ar.value = JSON.stringify(ads);
                 //console.log(ads);
-                
-            } else if(type == 'banner' && link_embedded !="" && link_redirected !=""){
-                
+
+            } else if (type == 'banner' && link_embedded != "" && link_redirected != "") {
+
+              
                 NoOfBanner++;
-                TotalOfBanner = NoOfBanner*unitPrice;
-                TotalBill = TotalBill + TotalOfBanner;
-                
+                if (NoOfBanner == 1) {
+                    document.getElementsByClassName("btn btn-danger 2")[0].className = "btn btn-success";
+                }
+                TotalOfBanner = NoOfBanner * unitPrice;
+                TotalBill = TotalBill + unitPrice;
+
                 showOutput("no_of_banner", NoOfBanner);
                 showOutput("total_amount_banner", TotalOfBanner);
                 showOutput("total_bill", TotalBill);
-                
+
                 let banner = {
                     "type": "banner",
-                "embedded": link_embedded,
-                "redirected": link_redirected
-            }
-            document.getElementById("embedded_link").value = "";
-            document.getElementById("redirected_link").value = "";
+                    "embedded": link_embedded,
+                    "redirected": link_redirected
+                }
+                document.getElementById("embedded_link").value = "";
+                document.getElementById("redirected_link").value = "";
                 ads.push(banner);
                 //console.log(ads);
-                
-                ads_ar.value = JSON.stringify(ads) ;
-            }else if(type == 'popup' && link_embedded !="" && link_redirected !=""){
-                
+
+                ads_ar.value = JSON.stringify(ads);
+            } else if (type == 'popup' && link_embedded != "" && link_redirected != "") {
+
+               
                 NoOfPopup++;
-                TotalOfPopup = NoOfPopup*unitPrice;
-                TotalBill = TotalBill + TotalOfPopup;
+                if (NoOfPopup == 1) {
+                    document.getElementsByClassName("btn btn-danger 3")[0].className = "btn btn-success";
+                }
+                TotalOfPopup = NoOfPopup * unitPrice;
+                TotalBill = TotalBill + unitPrice;
 
                 showOutput("no_of_popup", NoOfPopup);
                 showOutput("total_amount_popup", TotalOfPopup);
                 showOutput("total_bill", TotalBill);
-                
+
                 let popup = {
                     "type": "newTab",
                     "embedded": link_embedded,
@@ -304,14 +406,18 @@
                 document.getElementById("redirected_link").value = "";
                 ads.push(popup);
                 //console.log(ads);
-                
-                ads_ar.value = JSON.stringify(ads) ;
-            }else if(type == 'text' && link_embedded !="" && link_redirected !=""){
-                
+
+                ads_ar.value = JSON.stringify(ads);
+            } else if (type == 'text' && link_embedded != "" && link_redirected != "") {
+
+               
                 NoOfText++;
-                TotalOfText = NoOfText*unitPrice;
-                TotalBill = TotalBill + TotalOfText;
-                
+                if (NoOfText == 1) {
+                    document.getElementsByClassName("btn btn-danger 4")[0].className = "btn btn-success";
+                }
+                TotalOfText = NoOfText * unitPrice;
+                TotalBill = TotalBill + unitPrice;
+
                 showOutput("no_of_text", NoOfText);
                 showOutput("total_amount_text", TotalOfText);
                 showOutput("total_bill", TotalBill);
@@ -325,23 +431,27 @@
                 document.getElementById("redirected_link").value = "";
                 ads.push(text);
                 //console.log(ads);
-                
-                ads_ar.value = JSON.stringify(ads) ;
-            }else if(link_embedded =="" || link_redirected ==""){
+
+                ads_ar.value = JSON.stringify(ads);
+            } else if (link_embedded == "" || link_redirected == "") {
                 var message = "Place both embedded and redirected links"
-                            
+
                 var confirmBox = confirm(message);
-                if(confirmBox == true){
-                
-                }else{
-                
+                if (confirmBox == true) {
+
+                } else {
+
                 }
             }
-            console.log(ads);
-            
+           
+
         }
 
     </script>
+    <!-- -->
+
+
+
 </body>
 
 </html>
