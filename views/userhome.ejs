@@ -32,11 +32,21 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
                             <li class="nav-item active">
-                                <form method="POST" action="walletPage" >
+                                <form method="POST" action="adSubmission">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="walletbtn">Wallet</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">ADs</button>
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
+                            </li>
+                            <li class="nav-item active">
+                                <form method="POST" action="walletPage">
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="walletbtn">Wallet</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
@@ -44,9 +54,9 @@
                             <li class="nav-item ">
                                 <form method="POST" action="managePage" class="manage">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Links</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Links</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
@@ -54,14 +64,18 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                            
-                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
-                                    <a class="dropdown-item">  <%= User.userEmail %></a>
+
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
+                                        <%= User.name %>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <%= User.userEmail %>
+                                    </a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
                         </ul>
-                        
+
                     </div>
                 </nav>
             </div>
@@ -85,8 +99,8 @@
                         <div class="col-md-4  d-flex">
                             <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                             <div>
-                                <input type="text" name="fullUrl" id="fullUrl" placeholder="" required
-                                    style="width: 640px;">
+                                <input type="url" name="fullUrl" id="fullUrl" placeholder="" required
+                                    style="width: 640px;" onkeyup="check_this_URL()">
                                 <span> Give Me the Link </span>
                             </div>
 
@@ -94,12 +108,29 @@
                                 <div style="margin-left: 60px;">
                                     <input type="submit"
                                         style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                        class="btn" value="Shrink" />
+                                        class="btn" value="Shrink" id="shrinkButton" />
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <input class="l" type="checkbox" value="monetized" name="toggle">
                             </div>
+                            <script>
+                               function check_this_URL(){
+                                    var url = document.getElementById('fullUrl').value ;
+                                    var btn = document.getElementById('shrinkButton') ;
+                                    if(url.substring(0, 30) == "https://bananaly.herokuapp.com"
+                                    || url.substring(0, 29) == "http://bananaly.herokuapp.com"
+                                    || url.substring(0, 22) == "https://localhost:5000"
+                                    || url.substring(0, 21) == "http://localhost:5000"
+                                    || url.substring(0, 14) == "localhost:5000"){
+                                        btn.disabled = true ;
+                                        alert("Can't shrink links of this website...");
+                                    }
+                                    else{
+                                        btn.disabled = false ;
+                                    }
+                                }
+                            </script>
                         </div>
                     </form>
                 </div>
@@ -127,66 +158,74 @@
 
 
             <section class="container section_io ">
-            <!--Table Starts-->
-            <div>
-                <table>
-                    <tr id="header">
-                        <th>ShortURL</th>
-                        <th>MainURL</th>
-                        <th>Clicks</th>  
-                        <th>Creation Time</th>
-                        <th>Revenue</th>
-                        <th>M</th>
-                    </tr>
-                    <% var cnt = 0 ; %>
-                    <% urlList.forEach(element => { %>
-                        <tr>
-                            <td><a href="localhost:5000/<%= element.short %>"><%= element.short %> </a></td>
-                            <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
-                            <td>
-                                <!-- this content can be very large... -->
-                                <div style="overflow:hidden; height: 20px;">
-                                    <a href="<%= element.full %>"><%= element.full %> </a>
-                                </div>
-                            </td>
-                            <td><%= element.clicks %> </td>
-                            <td>
-                                <!-- this content can be very large... -->
-                                <div style="overflow:hidden; height: 20px;">
-                                    <%= element.creationTime %>
-                                </div>
-                            </td>
-                            <td><%= ((element.clicks * 0.1) * element.monetized).toFixed(2) %> TK</td>
-                            <td>
-                                <% if(element.monetized == true){ %> 
-                                    <%= 'Y' %> 
-                                <% }else{ %> 
-                                        <%= 'N' %> 
-                                <% } %> 
-                            </td>
+                <!--Table Starts-->
+                <div>
+                    <table>
+                        <tr id="header">
+                            <th>ShortURL</th>
+                            <th>MainURL</th>
+                            <th>Clicks</th>
+                            <th>Creation Time</th>
+                            <th>Revenue</th>
+                            <th>M</th>
                         </tr>
-                        <% cnt++; %> 
-                    <% }); %>
-                    <% for(i = 0 ; i < 3 - cnt ; i++){ %> 
-                        <tr>
-                            <td>NIL</td>
-                            <td>NIL</td>
-                            <td>NIL</td>
-                            <td>NIL</td>
-                            <td>NIL</td>
-                            <td>NIL</td>
-                        </tr>
-                    <% } %> 
-                </table>
-            </div>
+                        <% var cnt=0 ; %>
+                            <% urlList.forEach(element=> { %>
+                                <tr>
+                                    <td><a href="localhost:5000/<%= element.short %>">
+                                            <%= element.short %>
+                                        </a></td>
+                                    <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
+                                    <td>
+                                        <!-- this content can be very large... -->
+                                        <div style="overflow:hidden; height: 20px;">
+                                            <a href="<%= element.full %>">
+                                                <%= element.full %>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <%= element.clicks %>
+                                    </td>
+                                    <td>
+                                        <!-- this content can be very large... -->
+                                        <div style="overflow:hidden; height: 20px;">
+                                            <%= element.creationTime %>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <%= ((element.clicks * 0.1) * element.monetized).toFixed(2) %> TK
+                                    </td>
+                                    <td>
+                                        <% if(element.monetized==true){ %>
+                                            <%= 'Y' %>
+                                                <% }else{ %>
+                                                    <%= 'N' %>
+                                                        <% } %>
+                                    </td>
+                                </tr>
+                                <% cnt++; %>
+                                    <% }); %>
+                                        <% for(i=0 ; i < 3 - cnt ; i++){ %>
+                                            <tr>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                            </tr>
+                                            <% } %>
+                    </table>
+                </div>
 
-            <!--Table Ends-->
+                <!--Table Ends-->
                 <!-- More Button Starts -->
                 <div class="wrapper">
                     <button class="cta" href="#">
                         <p style="margin-left: -40px; margin-top: -15px;">More</p>
                         <span>
-                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" 
+                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
                                 style="margin-left: 60px; margin-top: 31%;" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

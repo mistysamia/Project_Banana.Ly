@@ -142,7 +142,7 @@ body {
   height: 65px;
   border-radius: 50px;
  
-  background-image: url(toggle.png);
+  background-image: url('toggle.png');
   background-size: cover;
   background-color: #fff;
   box-shadow: 2px 1px 5px -1px #000;

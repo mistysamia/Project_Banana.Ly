@@ -13,13 +13,17 @@ const adSchema = mongoose.Schema({
     remainingCnt:{
         type: Number,
         require: true,
-        default: 0
+        default: 100
     },
     adType:{
-        type: Number,
+        type: String,
         require: true
     },
     adEmbed:{
+        type: String,
+        require: true
+    },
+    adRedirect:{
         type: String,
         require: true
     }
