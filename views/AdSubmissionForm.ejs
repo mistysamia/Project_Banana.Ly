@@ -110,38 +110,40 @@
                         <tr class="tableColName">
                             <th>Serial</th>
                             <th>Category</th>
-                            <th>&nbsp;&nbsp;Status</th>
+                            <th>&nbsp;&nbsp;&nbsp;Status</th>
                             <th>Total&nbsp;Bill</th>
                             <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        <!-- Videos -->
                         <tr data-status="active">
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;1</td>
                             <td class="tbl_txt">
                                 <p>&nbsp;&nbsp;&nbsp;Videos</p>
                             </td>
                             <td class="tbl_txt"><span class="btn btn-danger 1" id="add1">
-                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="tbl_txt_ADD" id="addtxt1">&nbsp;&nbsp;Not Added </span> &nbsp; &nbsp;
                                     <span class="badge" class="tbl_txt_lstRow" id="no_of_video">0 </span></span></td>
 
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_video">00</span>
                             </td>
+
                             <td> <button onclick="billCalculation('video' , 250 )" class="add_btn">
                                     <span class="add_front"> ADD HERE </span></button></td>
                         </tr>
 
-
+<!-- Banner -->
                         <tr data-status="active">
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;2</td>
                             <td class="tbl_txt">
                                 <p>&nbsp;&nbsp;Banners</p>
                             </td>
                             <td class="tbl_txt"><span class="btn btn-danger 2" id="add2">
-                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="tbl_txt_ADD" id="addtxt2">&nbsp;&nbsp;Not Added </span> &nbsp; &nbsp;
                                     <span class="badge" class="tbl_txt_lstRow" id="no_of_banner">0 </span></span></td>
-
+                        
 
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk: <span id="total_amount_banner">00</span>
                             </td>
@@ -150,13 +152,14 @@
                         </tr>
 
 
+                        <!-- Pop Up Adds -->
                         <tr data-status="active">
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;3</td>
                             <td class="tbl_txt">
                                 <p>PopUp ADs</p>
                             </td>
                             <td class="tbl_txt"><span class="btn btn-danger 3" id="add3">
-                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="tbl_txt_ADD" id="addtxt3">&nbsp;&nbsp;Not Added </span> &nbsp; &nbsp;
                                     <span class="badge" id="no_of_popup" class="tbl_txt_lstRow">0</span></span></td>
 
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_popup">00</span>
@@ -165,7 +168,7 @@
                                     <span class="add_front"> ADD HERE </span></button></td>
                         </tr>
 
-
+<!-- Text -->
 
                         <tr data-status="active">
 
@@ -175,7 +178,7 @@
                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</p>
                             </td>
                             <td class="tbl_txt"><span class="btn btn-danger 4" id="add4">
-                                    <span class="tbl_txt_ADD">&nbsp;&nbsp; Added </span> &nbsp; &nbsp;
+                                    <span class="tbl_txt_ADD" id="addtxt4">&nbsp;&nbsp;Not Added </span> &nbsp; &nbsp;
                                     <span class="badge" id="no_of_text" class="tbl_txt_lstRow">0</span></span></td>
 
                             <td class="tbl_txt">&nbsp;&nbsp;&nbsp;&nbsp;Tk : <span id="total_amount_text">
@@ -335,6 +338,7 @@
                 NoOfVideo++;
                 if (NoOfVideo == 1) {
                     document.getElementsByClassName("btn btn-danger 1")[0].className = "btn btn-success";
+                    document.getElementById("addtxt1").innerHTML = "Added";
                 }
                 console.log(NoOfVideo);
                 console.log(link_embedded);
@@ -364,6 +368,7 @@
                 NoOfBanner++;
                 if (NoOfBanner == 1) {
                     document.getElementsByClassName("btn btn-danger 2")[0].className = "btn btn-success";
+                    document.getElementById("addtxt2").innerHTML = "Added";
                 }
                 TotalOfBanner = NoOfBanner * unitPrice;
                 TotalBill = TotalBill + unitPrice;
@@ -389,6 +394,7 @@
                 NoOfPopup++;
                 if (NoOfPopup == 1) {
                     document.getElementsByClassName("btn btn-danger 3")[0].className = "btn btn-success";
+                    document.getElementById("addtxt3").innerHTML = "Added";
                 }
                 TotalOfPopup = NoOfPopup * unitPrice;
                 TotalBill = TotalBill + unitPrice;
@@ -414,6 +420,7 @@
                 NoOfText++;
                 if (NoOfText == 1) {
                     document.getElementsByClassName("btn btn-danger 4")[0].className = "btn btn-success";
+                    document.getElementById("addtxt4").innerHTML = "Added";
                 }
                 TotalOfText = NoOfText * unitPrice;
                 TotalBill = TotalBill + unitPrice;
