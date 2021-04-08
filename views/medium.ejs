@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="mediumStyle.css">
 </head>
-<body style="background-color: burlywood;">
-    
-    <div style="align-items: center; display: grid; place-items: center; padding-bottom: 2%;">
+
+<body>
+
+    <!--  Image Starts  -->
+
+    <a href="https://checkout.soundcloud.com/pro?ref=pd&utm_source=DV360&utm_medium=Display&utm_campaign=US-FoSC-Prospecting&utm_term=Always-on"><image class="medImg1" src="add1IMG.png"></image></a>
+
+   <a href="https://www.mgmotor.co.in/vehicles/mgzsev?utm_source=Adobe&utm_medium=MG_ZSEV_Adobe&utm_campaign=MG_ZSEV_Sustenance_March21&utm_term=CPM&dclid=CjgKEAjw07qDBhDQh4qNl-yShGcSJACauPW2OjclE-LWG9SvnO9IE9m2aCvfgo6uktcWfDLAligGpvD_BwE"> <image class="medImg2" src="add2IMG.png"></image></a>
+
+  
+    <a href=" https://www.w3schools.com/colors/colors_picker.asp"><image class="medImg3" src="add3IMG.png"></image></a>
+
+    <a href="https://courses.w3schools.com/"><image class="medImg4" src="add4IMG.png"></image></a>
+  
+    <!--  Image Ends  -->
+
+    <div class="medMainTxt">
         <p style="font-size: 30px; text-align: center;">
-            Please wait for <span id="countdowntimer" style="color:rgb(53, 138, 13);">10 </span> Seconds <br>
-            <a id="redirection" hidden href="<%= full %>"><span style="font-size: large;">Click here!</span></a>
+            Please wait for <span id="countdowntimer" class="medText">10 </span> Seconds <br>
+            <a id="redirection" hidden href="<%= full %>"><span class="med_clk">Click here!</span></a>
         </p>
     </div>
 
     <div style="align-items: center; display: grid; place-items: center;">
-        <a href="<%= bannerRedirect %>"> <%- bannerEmbed %> </a>
+        <a href="<%= bannerRedirect %>">
+            <%- bannerEmbed %>
+        </a>
     </div>
 
     <div style="align-items: center; display: grid; place-items: center;">
-        <a href="<%= videoRedirect %>"> <%- videoEmbed %> </a>
+        <a href="<%= videoRedirect %>">
+            <%- videoEmbed %>
+        </a>
     </div>
 
     <div style="align-items: center; display: grid; place-items: center;">
-        <a href="<%= smallBoxRedirect %>"> <%- smallBoxEmbed %> </a>
+        <a href="<%= smallBoxRedirect %>">
+            <%- smallBoxEmbed %>
+        </a>
     </div>
 
 
     <script type="text/javascript">
         var timeleft = 10;
-        var downloadTimer = setInterval(function(){
+        var downloadTimer = setInterval(function () {
             timeleft--;
             document.getElementById("countdowntimer").textContent = timeleft;
-            if(timeleft <= 0){
+            if (timeleft <= 0) {
                 // window.location.replace ("<%= full %>")  ;
-                document.getElementById('redirection').hidden = false ;
+                document.getElementById('redirection').hidden = false;
                 document.getElementById("countdowntimer").textContent = 0;
             }
-        },1000);
+        }, 1000);
 
         window.open("<%- newTabEmbed %>");
     </script>
-    
+
 </body>
+
 </html>

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+
+body {
+    background-color: burlywood;
+}
+.medMainTxt{
+   align-items: center;
+   display: grid; 
+   place-items: center; 
+   padding-bottom: 2%;
+   margin-top: -50%;
+}
+
+.medText{
+   color:rgb(255, 0, 0);
+}
+.med_clk{
+    font-size: large;
+}
+
+/* Image Starts */
+
+.medImg1{
+ 
+    margin-left: -1%;
+    height: 20%;
+    margin-bottom: 3%;
+}
+.medImg2{
+    margin-top: 3%; 
+    margin-left: -15%;
+    height: 300%;
+    width: 30%;
+}
+.medImg3{
+    margin-top: -1155%; 
+    margin-left: 85%;
+    margin-bottom: 28%;
+}
+.medImg4{
+    margin-top: -1155%; 
+    margin-left: 85%;
+    margin-bottom: 6%;
+}
+
+/* Image Ends */
