@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+
+body {
+  background-image: url('bg_home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* Nav bar starts */
+
+.my-navbar{
+  background-color: rgba(0, 0, 0, 0.342);
+  }
+
+  .nav-item .nav-link{ 
+      color:white;
+      font-size:16px;
+      font-family:arial;
+      letter-spacing: 2px;
+      margin: 0px 10px;
+      text-transform: uppercase;
+  }
+  .mega-menu{
+      background-color: transparent;
+  }
+  .dropdown:hover .dropdown-menu{
+      display: block;
+  }
+  .managebtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
+  
+  .managebtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
+  
+  .dropdown-menu{
+      border:none;
+  }
+  
+  .dropdown-item{
+  
+      padding: 12px 40px 12px 20px;
+      font-size: 15px;
+      font-family:arial;
+      color:black;
+      font-weight: lighter;
+      background-color: white;
+      transform-origin: center;
+      animation :rotate 1.5s ease 1;
+  }
+  @keyframes rotate{
+      0%{transform: perspective(600px) rotatey(90deg); transform-origin:center;}
+      100%{transform: perspective(600px) rotatey(0deg); transform-origin:center;}
+  }
+  
+  .dropdown-item:nth-of-type(1){
+      animation-delay: 0s;
+  }
+  .dropdown-item:nth-of-type(2){
+      animation-delay: 0.1s;
+  }
+  .dropdown-item:nth-of-type(3){
+      animation-delay: 0.2s;
+  }
+ 
+ 
+  .dropdown-item:hover{
+      background-color: #3bbfd6;
+      color:white;
+  }
+  
+  .navbar-brand{
+      text-transform:uppercase;
+      font-family:impact;
+      font-size: 20px;
+      color:white;
+      letter-spacing: 2px;
+  }
+/* Nav bar Ends */
+/*  Card Background  Starts*/
+#CardBackground {
+  background-color: rgb(248, 220, 97);
+  background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97));
+  border-radius: 2px;
+  height: 1000px;
+
+  box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
+}
+/*  Card Background  Ends*/
+
+/*  Header starts */
+/*  Header Ends */
+
+
+/* Background of table starts */
+
+/* Background of table Ends */
+
+
+
+/* Input field starts */
+/* .box{
+  width: 550px;
+  height: 40px;
+  position: flex;
+  top: 50%;
+  margin-top: 130px;
+  margin-left: 460px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background:#dd986600;
+}
+input{
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+  border: white;
+  border: 2px solid #ffffff;
+  color: rgb(39, 37, 37);
+  padding: 3px;
+}
+span{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+  font-size: 17px;
+  color: #888;
+  pointer-events: none;
+}
+input:focus + span, input:valid + span{
+  top:0;
+  left: 10px;
+  font-size: 14px;
+  color:rgb(255, 94, 0);
+  border: white;
+  padding: 3px;
+  background: rgb(255, 255, 255);
+} */
+
+/* Input field Ends */
+
+
+
+/* Toggle  Button Starts */
+/* Toggle  Button Ends */
+
+
+
+
+
+
+
+
+/* Output field starts */
+/* Output field Ends */
+
+
+
+
+
+/* Table Starts */
+/* Table Ends */
+
+
+
+/*  Copy & Shrink Button Starts */ 
+
+/*  Copy & Shrink Button Ends */
+
+/* More Button Ends */
+
+/* Footer starts here */
+
+
+footer{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+   box-shadow: 2px 12px 8px 10px rgba(128, 111, 111, 0.75);
+  flex-flow: row wrap;
+  padding: 50px;
+  color: yellow;
+  background-color: grey;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.footer > *{
+  flex: 1 100%;
+}
+.footer-left{
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+  font-size: 15px;
+}
+.footer-left img{
+  width:50%;
+}
+h2{
+  font-weight: 600;
+  font-size: 20px;
+}
+.footer ul{
+  list-style: none;
+  padding-left: 0;
+}
+.footer li{
+  line-height:1.5em;
+}
+.footer a{
+  text-decoration: none;
+  font-size: 15px;
+}
+.footer-right{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+}
+.footer-right > *{
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+.box-footer a{
+  color: white;
+}
+.box-footer a:hover{
+  color: yellow;
+}
+.footer-bottom{
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+}
+.footer-left p{
+  padding-right: 20%;
+  color: white;
+}
+.social-media a{
+  background: lightgray;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  
+}
+.social-media a i{
+  color: black;
+  padding: 10px 12px;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .footer-right > *{
+      flex: 1;
+  }
+  .footer-left{
+      flex: 1 0px;
+  }
+  .footer-right{
+      flex: 2 0px;
+  }
+}
+
+@media (max-width: 600px){
+  .footer{
+      padding: 15px;
+  }
+  main{
+      font-size: 55px;
+  }
+}
+
+/* Footer Ends here */
+
+/* For USer Page Starts */
+
+
+/* For Card Background  Starts*/
+#UserCardBackground {
+  background-color: rgb(248, 220, 97);
+  background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97));
+  border-radius: 2px;
+  height: 990px;
+
+  box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
+}
+/* For Card Background  ENds*/
+
+/* For input field Starts */
+.UserInput{
+  margin-top:21.5%;
+  padding-left: 10%;
+  padding-right: 20%;
+  padding-top: 5%;
+  margin-right: 20%;
+}
+.UserfiledLabel{
+  text-transform: uppercase;
+  margin-top: 2%;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+}
+/* .UserfiledInput{
+   margin-left:-10% ;
+} */
+/* For input field Ends */
+
+/* For image Starts */
+.userImg{
+  height: 90%;
+  width: 60%;
+  position: absolute;
+  margin-left: 22%;
+  padding-left: 10%;
+}
+/* For image Ends */
+
+
+.UserInput{
+  margin-top:21.5%;
+  padding-left: 10%;
+  padding-right: 20%;
+  padding-top: 5%;
+  margin-right: 20%;
+}
+.UserfiledLabel{
+  text-transform: uppercase;
+  margin-top: 2%;
+  font-size: 20px;
+  font-family: Fantasy,Papyrus;
+}
+/* .UserfiledInput{
+   margin-left:-10% ;
+} */
+.userImg{
+  height: 85%;
+  width: 60%;
+  position: absolute;
+  margin-left: 13%;
+  padding-left: 10%;
+}

@@ -23,39 +23,63 @@
 
             <!--    Nav Bar starts Here -->
 
+         
             <div class="container-fluid p-0">
                 <nav class="navbar navbar-expand-lg my-navbar">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/userHome?email=<%= User.userEmail %>">
                         <img class="image_logo" src="logo.png" style="height: 60px; width:121px" alt="">
                     </a>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 220px;">
                         <ul class="navbar-nav m-auto">
-                            <li class="nav-item active">
-                                <form method="POST" action="userHome">
+                            <li class="nav-item ">
+                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
+                                <form method="POST" action="managePage" class="manage">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit"
-                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                        class="managebtn">HomePage</button>
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="managebtn">Links</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
-                                <form method="POST" action="walletPage">
+                                <!-- <form method="POST" action="adSubmission" > -->
+                                <form method="POST" action="adSubmission" >
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit"
-                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                        class="managebtn">Wallet</button>
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="managebtn">Place AD</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
+                            </li>
+                            <li class="nav-item active">
+                                <!-- <form method="POST" action="adSubmission" > -->
+                                <form method="POST" action="allAds" >
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="managebtn">Statics</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
+                                </form>
+                            </li>
+                            <li class="nav-item active">
+                                <form method="POST" action="walletPage" >
+                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                    <button type="submit" 
+                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                    class="managebtn">Wallet</button> 
+                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
+                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
-                                        <%= User.name %>
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <%= User.userEmail %>
-                                    </a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
+                                    <a class="dropdown-item"> <%= User.userEmail %> </a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
@@ -64,9 +88,99 @@
                 </nav>
             </div>
             <!--    Nav Bar Ends Here -->
+            <!-- Graph Starts Here -->
+            <div  class="graph" >
+                <script>
+                    window.onload = function () {
+                    
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        animationEnabled: true,
+                        title:{
+                            text: "Your Link Statistics"
+                        },	
+                        axisY: {
+                            title: "Clicks",
+                            titleFontColor: "#4F81BC",
+                            lineColor: "#4F81BC",
+                            labelFontColor: "#4F81BC",
+                            tickColor: "#4F81BC"
+                        },
+                        axisY2: {
+                            title: "Revenue",
+                            titleFontColor: "#C0504E",
+                            lineColor: "#C0504E",
+                            labelFontColor: "#C0504E",
+                            tickColor: "#C0504E"
+                        },	
+                        toolTip: {
+                            shared: true
+                        },
+                        legend: {
+                            cursor:"pointer",
+                            itemclick: toggleDataSeries
+                        },
+                        data: [{
+                            type: "column",
+                            name: "Clicks",
+                            legendText: "Clicks",
+                            showInLegend: true, 
+                            dataPoints:[
+                                // { label: 1, y: 266.21 },
+                                // { label: 2, y: 302.25 },
+                                // { label: 3, y: 157.20 },
+                                // { label: "Iraq", y: 148.77 },
+                                // { label: "Kuwait", y: 101.50 },
+                                // { label: "UAE", y: 97.8 }
+                                <% var ii = 1 %>
+                                <% urlStat.forEach(element => { %>
+                                { label: <%= ii %>, y: <%= element.clicks %> },
+                                <% ii++ %>
+                                <% }); %>
+                            ]
+                        },
+                        {
+                            type: "column",	
+                            name: "Revenue",
+                            legendText: "Revenue",
+                            axisYType: "secondary",
+                            showInLegend: true,
+                            dataPoints:[
+                                // { label: 1, y: 10.46 },
+                                // { label: 2, y: 2.27 },
+                                // { label: 3, y: 3.99 },
+                                // { label: "Iraq", y: 4.45 },
+                                // { label: "Kuwait", y: 2.92 },
+                                // { label: "UAE", y: 3.1 }
+                                <% ii = 1 %>
+                                <% urlStat.forEach(element => { %>
+                                { label: <%= ii %>, y: <%= element.clicks * 0.1 %> },
+                                <% ii++ %>
+                                <% }); %>
+                            ]
+                        }]
+                    });
+                    chart.render();
+                    
+                    function toggleDataSeries(e) {
+                        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                            e.dataSeries.visible = false;
+                        }
+                        else {
+                            e.dataSeries.visible = true;
+                        }
+                        chart.render();
+                    }
+                    
+                    }
+                    </script>
 
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            </div>
 
-            <div class="togggleflip" onclick="togglefun()">
+            <!-- Graph Ends Here -->
+
+            <div class="togggleflip" onclick="togglefun()" style="margin-top: 10%; margin-bottom: -17%;">
                 <div id="toggle"></div>
             </div>
 
@@ -88,7 +202,7 @@
                         <% var cnt=0 ; %>
                             <% urlList.forEach(element=> { %>
                                 <tr>
-                                    <td><a href="localhost:5000/<%= element.short %>">
+                                    <td><a href="<%= element.short %>">
                                             <%= element.short %>
                                         </a></td>
                                     <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
@@ -140,52 +254,52 @@
                 <div class="d-flex" id="PriceBarToggle">
 
                     <div class="bar1wrapper" id="PriceBarToggle1">
-                       
+
                         <div class="box">
                             <div class="c-name">Banana Pro</div>
-                            <div class="c-number">10% OFF</div> 
-                            <div class="c-number1"> 100 Links</div> 
-                            <div class="c-number1"> Tk. 25</div> 
+                            <div class="c-number">10% OFF</div>
+                            <div class="c-number1"> 100 Links</div>
+                            <div class="c-number1"> Tk. 25</div>
                             <image src="chip.png" class="CardChipImg">
                             </image>
-                            <div class="c-number2">10 days </div> 
+                            <div class="c-number2">10 days </div>
                         </div>
                     </div>
-                   
+
 
                     <div class="bar2wrapper" id="PriceBarToggle2">
                         <div class="box">
                             <div class="c-name1">Banana Boom</div>
-                            <div class="c-number">15% OFF</div> 
-                            <div class="c-number1"> 500 Links</div> 
-                            <div class="c-number1"> Tk. 100</div> 
+                            <div class="c-number">15% OFF</div>
+                            <div class="c-number1"> 500 Links</div>
+                            <div class="c-number1"> Tk. 100</div>
                             <image src="chip.png" class="CardChipImg">
                             </image>
-                            <div class="c-number2">20 days </div> 
+                            <div class="c-number2">20 days </div>
                         </div>
                     </div>
 
                     <div class="bar3wrapper" id="PriceBarToggle3">
                         <div class="box">
                             <div class="c-name"> Monkey Pro</div>
-                            <div class="c-number">20% OFF</div> 
-                            <div class="c-number1"> 1K Links</div> 
-                            <div class="c-number1"> Tk. 150</div> 
+                            <div class="c-number">20% OFF</div>
+                            <div class="c-number1"> 1K Links</div>
+                            <div class="c-number1"> Tk. 150</div>
                             <image src="chip.png" class="CardChipImg">
                             </image>
-                            <div class="c-number2">1 Month </div> 
+                            <div class="c-number2">1 Month </div>
                         </div>
                     </div>
-                   
+
                     <div class="bar4wrapper" id="PriceBarToggle4">
                         <div class="box">
                             <div class="c-name1"> Monkey Boom</div>
-                            <div class="c-number">30% OFF</div> 
-                            <div class="c-number1"> %K Links</div> 
-                            <div class="c-number1"> Tk. 500</div> 
+                            <div class="c-number">30% OFF</div>
+                            <div class="c-number1"> 2K Links</div>
+                            <div class="c-number1"> Tk. 500</div>
                             <image src="chip.png" class="CardChipImg">
                             </image>
-                            <div class="c-number2">2 Months </div> 
+                            <div class="c-number2">2 Months </div>
                         </div>
                     </div>
                 </div>
@@ -193,25 +307,28 @@
                 <!--Bar Ends-->
                 <!-- More Button Starts -->
                 <div class="wrapper">
-                    <button class="cta" href="#">
-                        <p style="margin-left: -40px; margin-top: -15px;">More</p>
-                        <span>
-                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" style="margin-top: 11%;"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <path class="one"
-                                        d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
-                                        fill="#FFFFFF"></path>
-                                    <path class="two"
-                                        d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
-                                        fill="#FFFFFF"></path>
-                                    <path class="three"
-                                        d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
-                                        fill="#FFFFFF"></path>
-                                </g>
-                            </svg>
-                        </span>
-                    </button>
+                    <form action="allLinks" method="POST">
+                        <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                        <button class="cta" type="submit">
+                            <p style="margin-left: -40px; margin-top: -15px;">More</p>
+                            <span>
+                                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" style="margin-top: 11%;"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <path class="one"
+                                            d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                                            fill="#FFFFFF"></path>
+                                        <path class="two"
+                                            d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                                            fill="#FFFFFF"></path>
+                                        <path class="three"
+                                            d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                                            fill="#FFFFFF"></path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </button>
+                    </form>
                 </div>
                 <!-- More Button Ends -->
 

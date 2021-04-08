@@ -7,16 +7,12 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-
-
-
 /* Nav bar starts */
 
-
 .my-navbar{
-  background-color:rgba(0, 0, 0, 0.342);
+  background-color: rgba(0, 0, 0, 0.342);
   }
-  
+
   .nav-item .nav-link{ 
       color:white;
       font-size:16px;
@@ -24,6 +20,12 @@ body {
       letter-spacing: 2px;
       margin: 0px 10px;
       text-transform: uppercase;
+  }
+  .mega-menu{
+      background-color: transparent;
+  }
+  .dropdown:hover .dropdown-menu{
+      display: block;
   }
   .managebtn {
     width: 160px;
@@ -45,20 +47,11 @@ body {
   .managebtn:hover {
     background-color:rgba(182, 180, 59, 0);
   }
-  .mega-menu{
-      background-color: transparent;
-  }
-  .dropdown:hover .dropdown-menu{
-      display: block;
-  }
-  .manage .btn-info{
-    color: #3bbfd6;
-  }
+  
   .dropdown-menu{
       border:none;
   }
-
-
+  
   .dropdown-item{
   
       padding: 12px 40px 12px 20px;
@@ -87,7 +80,7 @@ body {
  
  
   .dropdown-item:hover{
-    background-color: #3bbfd6;
+      background-color: #3bbfd6;
       color:white;
   }
   
@@ -98,119 +91,192 @@ body {
       color:white;
       letter-spacing: 2px;
   }
-  
-  .walletbtn {
-    width: 160px;
-    background-color:rgba(182, 180, 59, 0);
-    border: none;
-    outline: none;
-    height: 39px;
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size:1116px;
-    font-family:arial;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin:0rem;
-  }
-  
-  .walletbtn:hover {
-    background-color:rgba(182, 180, 59, 0);
-  }
-
 /* Nav bar Ends */
-
-
-
 /*  Card Background  Starts*/
 #CardBackground {
   background-color: rgb(248, 220, 97);
   background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97));
   border-radius: 2px;
-  height: 1100px;
+  height: 1000px;
 
   box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
 }
 /*  Card Background  Ends*/
 
-/* Graph Starts */
-
-.graph{
-  margin-top: 10%; 
-  width:80%; 
-  margin-left: 10%;
+/*  Header starts */
+.header{
+  display: flex;
+  background: url("111.png") no-repeat center;
   
-}
-
-
-/* Graph Ends */
-
-/* Toggle  Button Starts */
-
-.togggleflip{
-  width: 140px;
-  height: 65px;
-  border-radius: 50px;
- 
-  background-image: url('toggle.png');
+  height: 60vh;
+  color: #fff;
+  min-height: 200px;
   background-size: cover;
-  background-color: #fff;
-  box-shadow: 2px 1px 5px -1px #000;
-  box-shadow: inset 1px 0px 2px -1px #a3a2a2
-                     2px 0px 2px -1px #a3a2a2;
-  border: 3px inset #faa14d;
-  position: relative;
-  margin: 14% 42%;
-  cursor: pointer;
-
-
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
 }
-
-#toggle{
-  transform: translateX(0px);
-  width: 52px;
-  height: 52px;
-
-  border-radius: 50%;
-  margin: 4px 0px 1px 5px;
-  background-color: #e95e27;
-  transition: .3s;
-  box-shadow: 1px 1px 4px 1px #a3a2a2,
-        2px 0px 4px 1px #a3a2a2;
-
-}
+/*  Header Ends */
 
 
+/* Background of table starts */
 
-/* Toggle  Button Ends */
-
-
-
-/* Background of table Starts */
 .section_io{
   margin-top: 25%;
   background-color: rgb(253, 215, 159);
   height: 200px;
   background-image: url("back.png");
 }
+
 /* Background of table Ends */
+
+
+
+/* Input field starts */
+.box{
+  width: 550px;
+  height: 40px;
+  position: flex;
+  top: 50%;
+  margin-top: 130px;
+  margin-left: 460px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background:#dd986600;
+}
+input{
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+  border: white;
+  border: 2px solid #ffffff;
+  color: rgb(39, 37, 37);
+  padding: 3px;
+}
+span{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+  font-size: 17px;
+  color: #888;
+  pointer-events: none;
+}
+input:focus + span, input:valid + span{
+  top:0;
+  left: 10px;
+  font-size: 14px;
+  color:rgb(255, 94, 0);
+  border: white;
+  padding: 3px;
+  background: rgb(255, 255, 255);
+}
+
+/* Input field Ends */
+
+
+
+/* Toggle  Button Starts */
+.l {
+  
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 0.75em;
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+	color: #20f54e;
+	display: inline-flex;
+	align-items: center;
+	margin: auto;
+	padding: 0.15em;
+	width: 3em;
+  margin-left: 10px;
+	height: 1.5em;
+	transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.l:before, .l:after {
+	content: "";
+	display: block;
+}
+.l:before {
+	background-color:#fdea7b;
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	z-index: 1;
+}
+.l:after {
+	background:
+		linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+		repeating-linear-gradient(90deg,rgb(247, 3, 3) 0,#bbb,#bbb 20%,#888 20%,#999 40%) 0 50% / 50% 100%,
+		radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+	background-repeat: no-repeat;
+	border: 0.25em solid transparent;
+	border-left: 0.4em solid#fdea7b;
+	border-right: 0 solid transparent;
+	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	transform: translateX(-22.5%);
+	transform-origin: 25% 50%;
+	width: 1.2em;
+	height: 1em;
+}
+/* Checked */
+.l:checked {
+	background-color: rgba(0,0,0,0.45);
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+}
+.l:checked:before {
+	background-color: currentColor;
+	transform: translateX(125%)
+}
+.l:checked:after {
+	border-left-color: currentColor;
+	transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+	outline: 0;
+}
+/* Toggle  Button Ends */
+
+
+
+
+
+
+
+
+/* Output field starts */
+output{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  border: none;
+  background-color:  rgb(255, 255, 255);
+  color: #000000;
+  padding: 3px;
+}
+/* Output field Ends */
+
 
 
 
 
 /* Table Starts */
 table{
-  margin-left: 90px;
+  margin-left: 120px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   left: 50%;
   top: 50%;
   margin-top: 40px;
   border-collapse: collapse;
-  width: 900px;
-
+  width: 850px;
   height: 200px;
   border: 1px solid orange;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.452);
@@ -218,7 +284,6 @@ table{
 tr{
   transition: all .2s ease-in;
   cursor: pointer;
-
 }
 th, td{
   padding: 12px;
@@ -227,7 +292,6 @@ th, td{
 }
 #header{
   background-color: rgb(248, 188, 97);
-
   columns: white;
 }
 h1{
@@ -246,145 +310,29 @@ tr:hover{
 
 
 
+/*  Copy & Shrink Button Starts */ 
 
-/* Bar Starts */
-
-.bar1wrapper{
-  position: relative;
-  display: none;
-  margin-left: 150px;
-  margin-top: 100px;
-  margin-bottom: -7.4%;
-  transform: translate(-50%,-50%);
-}
-.bar2wrapper{
-    position: relative;
-    margin-left:40px;
-    display: none;
-    margin-top: 100px;
-    margin-bottom: -7.4%;
-    transform: translate(-50%,-50%);
-}
-.bar3wrapper{
-    position: relative;
-    margin-left:40px;
-    display: none;
-    margin-top: 100px;
-    margin-bottom: -7.4%;
-    transform: translate(-50%,-50%);
-}
-.bar4wrapper{
-    position: relative;
-    margin-left:40px;
-    display: none;
-    margin-top: 100px;
-    margin-bottom: -7.4%;
-    transform: translate(-50%,-50%);
-}
-.box{
-  position: relative;
-  height: 200px;
-  width: 220px;
-  border-radius: 25px;
-  box-shadow: 0 0 75px rgba(255, 164, 28, 0.2);
-  overflow: hidden;
-  background: rgba(255, 153, 0, 0.2);
-  border: 2px solid rgba(255, 136, 0, 0.192);
-}
-.logo img{
-  position: absolute;
-  top:75px;
-  left: 25px;
-  width: 906px;
-  height: auto;
-}
-.c-number{
-  position: a;
-  left: 40px;
-  bottom: 65px;
-  color: rgb(71, 71, 71);
-  font-size: 21px;
-  margin-top: 25%;
-  margin-left: 12%;
-}
-.c-number1{
-  position: a;
-  left: 40px;
-  bottom: 65px;
-  color: rgb(71, 71, 71);
-  font-size: 21px;
-  margin-left: 12%;
-}
-.c-number2{
-  position: a;
-  left: 40px;
-  bottom: 65px;
-  color: rgb(71, 71, 71);
-  font-size: 21px;
-  margin-left: 12%;
-  margin-top: -22px;
-}
-.CardChipImg{
-  width: 90px;
-  margin-left: 140px;
-  margin-top: -90px;
-}
-
-.c-name{
-  position: absolute;
-  font-size: 26px;
-  left: 36px;
-  bottom: 35px;
-  color: rgb(255, 81, 0);
-  letter-spacing: 2px;
-  margin-bottom:50% ;
-  font-weight: bold;
-  font-family: cursive;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-.c-name1{
-  position: absolute;
-  font-size: 24px;
-  left: 36px;
-  bottom: 35px;
-  margin-left: -10px;
-  color: rgb(255, 81, 0);
-  letter-spacing: 2px;
-  margin-bottom:50% ;
-  font-weight: bold;
-  font-family: cursive;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe607, 0 0 40px #e66800, 0 0 50px #e6bc00, 0 0 60px #fa3908, 0 0 70px #e64100;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff582e, 0 0 40px #ffc62b, 0 0 50px #eeb61b, 0 0 60px #ff481a, 0 0 70px #ff460d, 0 0 80px #ff5c2a;
-  }
-}
-
-.date-1{
-  position: absolute;
-  font-size: 16px;
-  bottom: 35px;
-  right: 110px;
+.btn {
+  width: 100px;
+  background-color: #FF9742;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
   color: #fff;
-}
-.date-2{
-  position: absolute;
-  font-size: 16px;
-  bottom: 35px;
-  right: 40px;
-  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-/* Bar Ends */
+.btn:hover {
+  background-color:#93ff55;
+}
 
+
+/*  Copy & Shrink Button Ends */
 
 
 /* More Button starts */
@@ -406,13 +354,14 @@ tr:hover{
   transform: skewX(-15deg);
 }
 
+
 .cta:focus {
  outline: none; 
 }
 
 .cta:hover {
   transition: 0.5s;
-  box-shadow: 10px 10px 0 #fac229;
+  box-shadow: 10px 10px 0 #FBC638;
 }
 
 .cta span:nth-child(2) {
@@ -573,3 +522,27 @@ h2{
 }
 
 /* Footer Ends here */
+.UserInput{
+  margin-top:21.5%;
+  padding-left: 10%;
+  padding-right: 20%;
+  padding-top: 5%;
+  margin-right: 20%;
+}
+.UserfiledLabel{
+  text-transform: uppercase;
+  margin-top: 2%;
+  font-size: 20px;
+  font-family: Fantasy,Papyrus;
+}
+/* .UserfiledInput{
+   margin-left:-10% ;
+} */
+
+.userImg{
+  height: 85%;
+  width: 60%;
+  position: absolute;
+  margin-left: 13%;
+  padding-left: 10%;
+}

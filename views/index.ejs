@@ -10,7 +10,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="homepageStyle.css">
+    <link rel="stylesheet" href="stylehome.css">
 </head>
 
 <body>
@@ -24,6 +24,7 @@
                 <a href="">
                     <img src="logo.png" style="height:210; width: 190px;" />
                 </a>
+
                 <!--  Sign in button STarts -->
                 <form action="SignUpLogIn" method="POST">
                     <div class="twitter social-button">
@@ -50,23 +51,34 @@
 
             <!-- Main field starts -->
             <section class="box">
+                <!-- <div>
+                        <input type="text" name="" required="required">
+                        <span>Give Me the Link</span>
+                        <div class="d-flex justify-content-center">
+                            <input class="l" type="checkbox">
+                        </div>
+                    </div>-->
+                <!--Input Starts Here-->
                 <div>
                     <form class="my-4 form-inline" action="/" method="POST">
                         <div class="col-md-4  d-flex">
 
                             <div>
                                 <input type="url" name="fullUrl" id="fullUrl" placeholder="" required
-                                    style="width: 640px;"  onkeyup="check_this_URL()">
+                                    style="width: 640px;" onkeyup="check_this_URL()">
                                 <span> Give Me the Link</sp>
                             </div>
 
                             <div class="form__field form__field--submit">
                                 <div style="margin-left: 60px;">
-                                    <input type="submit" id="shrinkButton"
+                                    <input type="submit"  
                                         style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                        class="btn" value="Shrink" />
+                                        class="btn" value="Shrink" id="shrinkButton" />
                                 </div>
                             </div>
+                            <!-- <div class="d-flex justify-content-center">
+                                <input class="l" type="checkbox">
+                            </div> -->
                             <script>
                                 function check_this_URL(){
                                     var url = document.getElementById('fullUrl').value ;
@@ -94,22 +106,22 @@
                     <div class="col-md-4  d-flex">
                         <div>
                             <input type="text" name="shortUrlBox" id="shortUrlBox" readonly
-                                style="width: 640px; height: 42px; margin-bottom: 10%;" placeholder="short url"
-                                value="localhost:5000/<%=shortUrls.short%>">
+                                style="width: 640px; height: 42px;" placeholder="short url"
+                                value="bananaly.herokuapp.com/<%=shortUrls.short%>">
                         </div>
                         <div style="margin-left: 60px;">
                             <button onclick="copyToClipboard()"
                                 style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                class="btn"> Copy </button>
+                                class="btn" > Copy </button>
                         </div>
                     </div>
                 </div>
                 <!--Output Ends Here-->
 
-                <!--Video Starts -->
-                <iframe src="https://drive.google.com/file/d/1S-UKZK7ffUWlTk53maIFJwy1NhA5zfIY/preview" width="786"
-                    height="300" class="video"></iframe>
-                <!--Video Ends -->
+                <iframe src="https://drive.google.com/file/d/1S-UKZK7ffUWlTk53maIFJwy1NhA5zfIY/preview" width="800" height="300"></iframe>
+                <div class="blinking-link">
+                    <a href="/about" class="blink"> Abouts us! </a>
+                </div>
             </section>
             <!-- Main field starts -->
         </div>

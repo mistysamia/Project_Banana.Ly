@@ -11,7 +11,7 @@ body {
 
 .my-navbar{
   background-color: rgba(0, 0, 0, 0.342);
-  height: 70px;
+  height: 90px;
   }
 
   .nav-item .nav-link{ 
@@ -127,7 +127,7 @@ body {
   background-color: rgb(248, 220, 97);
   background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97),#f89148);
   border-radius: 2px;
-  height: 1200px;
+  height: 1400px;
 
   box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
 }
@@ -155,14 +155,150 @@ body {
 
 /* Input field Ends */
 
+/* Price List Starst */
+
+.wrapper{
+  max-width: 1090px;
+  width: 200%;
+  margin: auto;
+  display: flex;
+  margin-left: 25%;
+  margin-top: 20%;
+  flex-wrap: wrap;
+  border-radius: 25px;
+  justify-content: space-between;
+}
+.wrapper .table{
+  background-image: linear-gradient(147deg, #fcff2e 0%,rgb(246, 248, 241),#fffc39);
+  width: calc(33% - 20px);
+  padding: 30px 30px;
+  border-radius: 25px;
+  width: 50%;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(224, 248, 8, 0.322);
+}
+
+.table .price-section{
+  display: flex;
+  justify-content: center;
+}
+.table .price-area{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding: 2px;
+}
+.price-area .inner-area{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  line-height: 117px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.price-area .inner-area .text{
+  font-size: 25px;
+  font-weight: 400;
+  margin-top: -30%;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+.price-area .inner-area .price{
+  font-size: 45px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+.table .package-name{
+  width: 100%;
+  height: 2px;
+  margin: 35px 0;
+  position: relative;
+}
+.table .package-name::before{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 25px;
+  font-weight: 500;
+  background: #fff;
+  padding: 0 15px;
+  transform: translate(-50%, -50%);
+}
+.table .features li{
+  margin-bottom: 15px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.features li .list-name{
+  font-size: 17px;
+  font-weight: 400;
+}
+
+
+.premium .package-name{
+  background: #ff3e1c;
+}
+
+.premium .package-name::before{
+  content: "Price List";
+  font-size: 24px;
+  color: #ec2300;
+}
+
+@media (max-width: 1020px) {
+  .wrapper .table{
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 698px) {
+  .wrapper .table{
+    width: 100%;
+  }
+}
+::selection{
+  color: #fff;
+}
+.table .ribbon{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+
+.table .ribbon span{
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 200px;
+  background: #ffdc3e;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+
+
+/* Price List Ends */
+
+
 /* Pricing Table Starts Here */
 .table-wrapper {
   width: 900px; 
-  /* background-image: linear-gradient(147deg,#ffffff, 0%,rgb(255, 246, 161)); */
+  
   background-image: url('price_Table_BG.png');
   padding: 20px 30px 5px;
   margin: 30px auto;
-  margin-top: 18%;
+  margin-top: 9%;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
 }
 

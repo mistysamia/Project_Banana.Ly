@@ -11,7 +11,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="userHome.css">
+    <link rel="stylesheet" href="managePageStyle.css">
     <title>Home Page</title>
 </head>
 
@@ -29,42 +29,21 @@
                         <img class="image_logo" src="logo.png" style="height: 60px; width:121px" alt="">
                     </a>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 220px;">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 490px;">
                         <ul class="navbar-nav m-auto">
-                            <li class="nav-item ">
-                                <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
-                                <form method="POST" action="managePage" class="manage">
-                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Links</button> 
-                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
-                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
-                                </form>
-                            </li>
                             <li class="nav-item active">
-                                <!-- <form method="POST" action="adSubmission" > -->
-                                <form method="POST" action="adSubmission" >
-                                    <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Place AD</button> 
-                                    <!-- <input type="submit" class="btn btn-info" value="Links">  -->
-                                    <!--  <div class="nav-link" type="submit"  >Links</div> -->
-                                </form>
-                            </li>
-                            <li class="nav-item active">
-                                <!-- <form method="POST" action="adSubmission" > -->
+                                <!-- <a class="nav-link" href="#">Wallets</a> -->
                                 <form method="POST" action="allAds" >
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                                     <button type="submit" 
                                     style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Statics</button> 
+                                    class="managebtn">Ads</button> 
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
+                                <!-- <a class="nav-link" href="#">Wallets</a> -->
                                 <form method="POST" action="wallet" >
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
                                     <button type="submit" 
@@ -87,117 +66,105 @@
                 </nav>
             </div>
             <!--    Nav Bar Ends Here -->
+            <div>
+                <script>
+                    window.onload = function () {
+                    
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        animationEnabled: true,
+                        title:{
+                            text: "Your Link Statistics"
+                        },	
+                        axisY: {
+                            title: "Clicks",
+                            titleFontColor: "#4F81BC",
+                            lineColor: "#4F81BC",
+                            labelFontColor: "#4F81BC",
+                            tickColor: "#4F81BC"
+                        },
+                        axisY2: {
+                            title: "Revenue",
+                            titleFontColor: "#C0504E",
+                            lineColor: "#C0504E",
+                            labelFontColor: "#C0504E",
+                            tickColor: "#C0504E"
+                        },	
+                        toolTip: {
+                            shared: true
+                        },
+                        legend: {
+                            cursor:"pointer",
+                            itemclick: toggleDataSeries
+                        },
+                        data: [{
+                            type: "column",
+                            name: "Clicks",
+                            legendText: "Clicks",
+                            showInLegend: true, 
+                            dataPoints:[
+                                // { label: 1, y: 266.21 },
+                                // { label: 2, y: 302.25 },
+                                // { label: 3, y: 157.20 },
+                                // { label: "Iraq", y: 148.77 },
+                                // { label: "Kuwait", y: 101.50 },
+                                // { label: "UAE", y: 97.8 }
+                                <% var ii = 1 %>
+                                <% urlStat.forEach(element => { %>
+                                { label: <%= ii %>, y: <%= element.clicks %> },
+                                <% ii++ %>
+                                <% }); %>
+                            ]
+                        },
+                        {
+                            type: "column",	
+                            name: "Revenue",
+                            legendText: "Revenue",
+                            axisYType: "secondary",
+                            showInLegend: true,
+                            dataPoints:[
+                                // { label: 1, y: 10.46 },
+                                // { label: 2, y: 2.27 },
+                                // { label: 3, y: 3.99 },
+                                // { label: "Iraq", y: 4.45 },
+                                // { label: "Kuwait", y: 2.92 },
+                                // { label: "UAE", y: 3.1 }
+                                <% ii = 1 %>
+                                <% urlStat.forEach(element => { %>
+                                { label: <%= ii %>, y: <%= element.clicks * 0.1 %> },
+                                <% ii++ %>
+                                <% }); %>
+                            ]
+                        }]
+                    });
+                    chart.render();
+                    
+                    function toggleDataSeries(e) {
+                        if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                            e.dataSeries.visible = false;
+                        }
+                        else {
+                            e.dataSeries.visible = true;
+                        }
+                        chart.render();
+                    }
+                    
+                    }
+                    </script>
 
-
-
-
-            <!-- Main field starts -->
-            <section class="box" style="margin-bottom: 130px;">
-                <!-- <div>
-            <input type="text" name="" required="required">
-            <span>Give Me the Link</span>
-            <div class="d-flex justify-content-center">
-                <input class="l" type="checkbox">
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
-        </div>-->
-                <!--Input Starts Here-->
-                <div>
-                    <form class="my-4 form-inline" action="uShrink" method="POST">
-                        <div class="col-md-4  d-flex">
-                            <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                            <div>
-                                <input type="url" name="fullUrl" id="fullUrl" placeholder="" required
-                                    style="width: 640px;" onkeyup="check_this_URL()">
-                                <span> Give Me the Link </span>
-                            </div>
 
-                            <div class="form__field form__field--submit">
-                                <div style="margin-left: 60px;">
-                                    <input type="submit"
-                                    style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="btn" value="Shrink" id="shrinkButton" />
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <input class="l" type="checkbox" value="monetized" id = "toggle" name="toggle">
-                            </div>
-                            <script>
-                                function check_this_URL(){
-                                    var url = document.getElementById('fullUrl').value ;
-                                    var btn = document.getElementById('shrinkButton') ;
-                                    if(url.substring(0, 30) == "https://bananaly.herokuapp.com"
-                                    || url.substring(0, 29) == "http://bananaly.herokuapp.com"
-                                    || url.substring(0, 22) == "https://localhost:5000"
-                                    || url.substring(0, 21) == "http://localhost:5000"
-                                    || url.substring(0, 14) == "localhost:5000"){
-                                        btn.disabled = true ;
-                                        alert("Can't shrink links of this website...");
-                                    }
-                                    else{
-                                        btn.disabled = false ;
-                                    }
-                                }
-                                function onToggle(){
-                                    const tog_btn = document.getElementById("toggle") ;
-                                    
-                                    if (tog_btn.value == "monetized") {
-                                        tog_btn.value = "not_monetized" ;
-                                        var message = "Monetization turned on."
-                                        var confirmBox = confirm(message);
-                                        if (confirmBox == true) {
-                                            
-                                        } else {
-                                            
-                                        }
-                                    }
-                                    else {
-                                        tog_btn.value = "monetized" ;
-                                        var message = "Monetization turned off."
-                                        var confirmBox = confirm(message);
-                                        if (confirmBox == true) {
-    
-                                        } else {
-    
-                                        }
-                                    }
-                                }
-                            </script>
-                        </div>
-                    </form>
-                </div>
-                <!--Input Ends Here-->
-
-                <!--Output Starts Here-->
-                <div>
-                    <div class="col-md-4  d-flex">
-                        <div>
-                            <input type="text" name="shortUrlBox" id="shortUrlBox" readonly
-                                style="width: 640px; height: 42px;" placeholder="short url"
-                                value="bananaly.herokuapp.com/<%=shortUrls.short%>">
-                        </div>
-                        <div style="margin-left: 60px; ">
-                            <button type="submit" onclick="copyToClipboard()"
-                                style="margin-left: -30px;  font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                class="btn" value="Copy">Copy</button>
-                        </div>
-                    </div>
-                </div>
-                <!--Output Ends Here-->
-
-            </section>
-            <!-- Main field starts -->
-
+            <div class="togggleflip" onclick="togglefun()">
+                <div id="toggle"></div>
+            </div>
 
             <section class="container section_io ">
 
-                <!-- <div>
-                    <div class="togggleflip" onclick="togglefun()">
-                        <div id="toggle"></div>
-                    </div>
-                </div> -->
+
 
                 <!--Table Starts-->
-                <div>
+                <div id="tableToggle">
                     <table>
                         <tr id="header">
                             <th>ShortURL</th>
@@ -210,7 +177,7 @@
                         <% var cnt = 0 ; %>
                         <% urlList.forEach(element => { %>
                             <tr>
-                                <td><a href="<%= element.short %>"><%= element.short %> </a></td>
+                                <td><a href="localhost:5000/<%= element.short %>"><%= element.short %> </a></td>
                                 <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
                                 <td>
                                     <!-- this content can be very large... -->
@@ -250,6 +217,53 @@
                 </div>
 
                 <!--Table Ends-->
+                <!--Bar Starts-->
+                <div class="d-flex" id="PriceBarToggle" >
+                    <div class="bar1wrapper" id="PriceBarToggle1"  >
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                    <div class="bar2wrapper"  id="PriceBarToggle2">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+
+
+                    <div class="bar3wrapper"  id="PriceBarToggle3">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                    <div class="bar4wrapper"  id="PriceBarToggle4">
+                        <div class="box">
+                            <div class="logo"><img src="card.png" alt=""></div>
+                            <div class="chip"><img src="chip.png" alt=""></div>
+                            <div class="c-number">1234 5678 9000 0000</div>
+                            <div class="c-name">CUSTOMER NAME</div>
+                            <!-- <div class="date-1">01/20</div>
+                            <div class="date-2">12/25</div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Bar Ends-->
                 <!-- More Button Starts -->
                 <div class="wrapper">
                     <form action="allLinks" method="POST">
@@ -257,8 +271,8 @@
                         <button class="cta" type="submit">
                             <p style="margin-left: -40px; margin-top: -15px;">More</p>
                             <span>
-                                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"  style="margin-left: 60px; margin-top: 40px;"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <path class="one"
                                             d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
@@ -280,11 +294,10 @@
             </section>
 
 
-
         </div>
         <!--  Card Background  Starts -->
 
-        <!-- Footer Background Starts -->
+        <!-- Footer Background Ends -->
         <footer class="footer">
             <div class="footer-left">
                 <img src="logo.png">
@@ -349,20 +362,6 @@
     <!-- Fixed Background Ends -->
 
 
-    <!-- Copy Button Starts-->
-
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("shortUrlBox");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Copied to Clipboard: " + copyText.value);
-        }
-    </script>
-    <!-- Copy Button Ends -->
-
-
     <!-- For Nav Bar Start -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -378,22 +377,52 @@
 
 
     <!--For Toggle Button Starts -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         function togglefun() {
             var toggle = document.getElementById("toggle").getAttribute("style");
             if (toggle == "transform: translateX(0px);") {
-                document.getElementById("toggle").style.transform = "translateX(73px)";
-                document.getElementById("bodybg").style.backgroundColor = "#615c5c";
-                document.getElementById("heading").style.color = "#fff";
+                document.getElementById("toggle").style.transform = "translateX(73px)";  
+                ShowPriceBar();
             }
             else {
                 document.getElementById("toggle").style.transform = "translateX(0px)";
-                document.getElementById("bodybg").style.backgroundColor = "#dbd7d7";
-                document.getElementById("heading").style.color = "#000";
+               ShowTable();
             }
         }
-    </script> -->
+
+        function ShowPriceBar() {
+            document.getElementById('PriceBarToggle').style.display = "block";
+            document.getElementById('PriceBarToggle1').style.display = "block";
+            document.getElementById('PriceBarToggle2').style.display = "block";
+            document.getElementById('PriceBarToggle3').style.display = "block";
+            document.getElementById('PriceBarToggle4').style.display = "block";
+            document.getElementById('tableToggle').style.display = "none";
+        }
+        function ShowTable() {
+           document.getElementById('PriceBarToggle').style.display = "none";
+           document.getElementById('PriceBarToggle1').style.display = "none";
+           document.getElementById('PriceBarToggle2').style.display = "none";
+           document.getElementById('PriceBarToggle3').style.display = "none";
+           document.getElementById('PriceBarToggle4').style.display = "none";
+           document.getElementById('tableToggle').style.display = "block";
+           console.log("here");
+       }
+    </script>
     <!--For Toggle Button Ends -->
+
+
+
+    <!-- For Pricing Bar Starts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+
+    <script src="tilt.jquery.js">
+    </script>
+    <script>
+        const tilt = $('.box').tilt();
+
+    </script>
+    <!-- For Pricing Bar Ends-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

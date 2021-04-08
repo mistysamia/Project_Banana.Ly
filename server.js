@@ -1,4 +1,5 @@
 const express = require('express')
+const php_runner = require("child_process");
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
 const User = require('./models/user')
@@ -39,6 +40,17 @@ app.post('/SignUpLogIn', (req, res) => {
     //     res.render('signup_login')
     // })
 
+
+app.get('/about', (req, res) => {
+    var phpScriptPath = "public/about.php";
+    var argsString = "";
+    php_runner.exec("php " + phpScriptPath + " " +argsString, function(err, phpResponse, stderr) {
+        if(err) console.log(err); /* log error */
+        // console.log( phpResponse );
+        res.send(phpResponse) ;
+    });
+})
+
 app.post('/signUpButtonAction', async (req, res) => {
     const x = await User.findOne({ userEmail: req.body.email })
     if (x == null) {
@@ -50,6 +62,7 @@ app.post('/signUpButtonAction', async (req, res) => {
         return res.sendStatus(404)
     }
 })
+
 app.post('/logInButtonAction', async (req, res) => {
     const x = await User.findOne({ userEmail: req.body.email2 })
     if (x == null) {
@@ -64,6 +77,19 @@ app.post('/logInButtonAction', async (req, res) => {
         }
         else
         return res.sendStatus(404)
+    }
+})
+
+app.get('/userHome', async (req, res) => {
+    const x = await User.findOne({ userEmail: req.query.email })
+    // console.log(x) ;
+    if (x == null) {
+        // not registered
+        return res.sendStatus(404)
+    }
+    else {
+        const urlList = await shortUrl.find({ userEmail: req.query.email }).limit(3) ;
+        res.render('userHome', { User: x, shortUrls: { short: "" }, urlList: urlList })
     }
 })
 
@@ -112,18 +138,20 @@ app.post('/editUserInfo', async (req, res) => {
 app.post('/managePage', async (req, res) => {
     const user = await User.findOne({ userEmail: req.body.email }) ;
     const urlList = await shortUrl.find({ userEmail: req.body.email }).limit(3) ;
+    const urlStat = await shortUrl.find({ userEmail: req.body.email, monetized: true }) ;
     res.render('managePage', {
         User: user,
-        urlList: urlList
+        urlList: urlList,
+        urlStat: urlStat
     })
 })
 
-app.post('/walletPage', async (req, res) => {
+app.post('/wallet', async (req, res) => {
     const user = await User.findOne({ userEmail: req.body.email }) ;
     const txns = await Txn.find({ userEmail: req.body.email }).limit(3) ;
     const urlList = await ShortUrl.find({ userEmail: req.body.email, monetized: true }) ;
     // console.log(urlList) ;
-    res.render('walletPage', {
+    res.render('wallet', {
         User: user,
         Txns: txns,
         urlList: urlList
@@ -152,6 +180,33 @@ app.post('/payment', async (req, res) => {
     
     res.render('AdSubmissionForm', {
         User : user
+    })
+})
+
+app.post('/allLinks', async (req, res) => {
+    const user = await User.findOne({ userEmail : req.body.email }) ;
+    const urlList = await ShortUrl.find({ userEmail: req.body.email }) ;
+    res.render('all_links', {
+        User: user,
+        urlList : urlList
+    }) ;
+})
+
+app.post('/allTxns', async (req, res) => {
+    const user = await User.findOne({ userEmail: req.body.email }) ;
+    const txns = await Txn.find({ userEmail: req.body.email }) ;
+    res.render('all_txns', {
+        User: user,
+        Txns: txns
+    })
+})
+
+app.post('/allAds', async (req, res) => {
+    const user = await User.findOne({ userEmail: req.body.email }) ;
+    const ads = await Ad.find({ userEmail: req.body.email }) ;
+    res.render('all_ads', {
+        User: user,
+        Ads: ads
     })
 })
 
