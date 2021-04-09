@@ -269,14 +269,14 @@ output{
 
 /* Table Starts */
 table{
-  margin-left: 120px;
+  margin-left: 4%;
   padding-bottom: 20px;
   margin-bottom: 20px;
   left: 50%;
   top: 50%;
   margin-top: 40px;
   border-collapse: collapse;
-  width: 850px;
+  width: 1000px;
   height: 200px;
   border: 1px solid orange;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.452);

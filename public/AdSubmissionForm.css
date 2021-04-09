@@ -11,7 +11,7 @@ body {
 
 .my-navbar{
   background-color: rgba(0, 0, 0, 0.342);
-  height: 90px;
+  height: 70px;
   }
 
   .nav-item .nav-link{ 
@@ -175,6 +175,7 @@ body {
   border-radius: 25px;
   width: 50%;
   position: relative;
+  height: 40%;
   box-shadow: 0 5px 10px rgba(224, 248, 8, 0.322);
 }
 
@@ -205,6 +206,7 @@ body {
   position: absolute;
   top: -10px;
   left: 17px;
+ 
 }
 .price-area .inner-area .price{
   font-size: 45px;
@@ -216,6 +218,7 @@ body {
   height: 2px;
   margin: 35px 0;
   position: relative;
+  font-family: "Lucida Handwriting",Sans-serif;
 }
 .table .package-name::before{
   position: absolute;
@@ -233,9 +236,37 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.features li .list-name{
+.features li .list-name1{
   font-size: 17px;
-  font-weight: 400;
+  margin-top: 0%;
+  font-family: "Papyrus",Monospace;
+  font-weight:bold;
+}
+.features li .list-name2{
+  font-size: 17px;
+  margin-top: 00%;
+  font-family: "Papyrus",Monospace;
+  font-weight:bold;
+}
+.features li .list-name3{
+  font-size: 17px;
+  margin-top: 0%;
+  font-family: "Papyrus",Monospace;
+  font-weight:bold;
+  margin-right: 17%;
+}
+.features li .list-name4{
+  font-size: 17px;
+  margin-top: 0%;
+  font-family: "Papyrus",Monospace;
+  font-weight:bold;
+  margin-right: 17%;
+}
+.banImg{
+   height: 40%;
+   margin-left: 54%;
+   margin-top: -60%;
+   margin-bottom: -60%;
 }
 
 
@@ -244,7 +275,7 @@ body {
 }
 
 .premium .package-name::before{
-  content: "Price List";
+  content: "Banana List";
   font-size: 24px;
   color: #ec2300;
 }
@@ -285,8 +316,8 @@ body {
   font-size: 17px;
   text-transform: uppercase;
   box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+  font-family: "Serif",Copperplate;
 }
-
 
 /* Price List Ends */
 
@@ -315,6 +346,7 @@ body {
   margin: 2px 0 0;
   margin-top: 10%;
   font-size: 24px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 table.table tr th, table.table tr td {
   border-color: #e9e9e9;
