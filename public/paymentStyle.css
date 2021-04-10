@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+
+body {
+  background-image: url('bg_home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+/* Nav bar starts */
+
+.my-navbar{
+
+  background-color:rgba(0, 0, 0, 0.342);
+  }
+  
+  .nav-item .nav-link{ 
+      color:white;
+      font-size:16px;
+      font-family:arial;
+      letter-spacing: 2px;
+      margin: 0px 10px;
+      text-transform: uppercase;
+  }
+  .mega-menu{
+      background-color: transparent;
+  }
+  .dropdown:hover .dropdown-menu{
+      display: block;
+  }
+  .manage .btn-info{
+    color: #3bbfd6;
+  }
+  .dropdown-menu{
+      border:none;
+  }
+  
+
+  .managebtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
+  
+  .managebtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
+  .dropdown-item{
+  
+      padding: 12px 40px 12px 20px;
+      font-size: 15px;
+      font-family:arial;
+      color:black;
+      font-weight: lighter;
+      background-color: white;
+      transform-origin: center;
+      animation :rotate 1.5s ease 1;
+  }
+  @keyframes rotate{
+      0%{transform: perspective(600px) rotatey(90deg); transform-origin:center;}
+      100%{transform: perspective(600px) rotatey(0deg); transform-origin:center;}
+  }
+  
+  .dropdown-item:nth-of-type(1){
+      animation-delay: 0s;
+  }
+  .dropdown-item:nth-of-type(2){
+      animation-delay: 0.1s;
+  }
+  .dropdown-item:nth-of-type(3){
+      animation-delay: 0.2s;
+  }
+ 
+ 
+  .dropdown-item:hover{
+    background-color: #3bbfd6;
+      color:white;
+  }
+  
+  .navbar-brand{
+      text-transform:uppercase;
+      font-family:impact;
+      font-size: 20px;
+      color:white;
+      letter-spacing: 2px;
+  }
+
+
+  .walletbtn {
+    width: 160px;
+    background-color:rgba(182, 180, 59, 0);
+    border: none;
+    outline: none;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size:1116px;
+    font-family:arial;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin:0rem;
+  }
+  
+  .walletbtn:hover {
+    background-color:rgba(182, 180, 59, 0);
+  }
+
+
+/* Nav bar Ends */
+
+
+
+
+/*  Card Background  Starts*/
+#CardBackground {
+  background-color: rgb(248, 220, 97);
+  background-image: linear-gradient(147deg, #f89148 0%,rgb(248, 220, 97),#f89148);
+  border-radius: 2px;
+  height: 1050px;
+
+  box-shadow: 0px -1px 10px 5px rgba(107, 96, 96, 0.75);
+}
+/*  Card Background  Ends*/
+
+
+/* Background img starts */
+
+.paymentImg{
+   
+
+  height: 45%;
+  margin-left: 47%;
+}
+
+
+/* Background img Ends */
+
+
+
+/* payment slip STarts */
+
+
+.checkout_wrapper{
+  width: 500px;
+  height: 45%;
+  margin-left: 6%;
+  display: flex;
+  margin-top: -37%;
+ 
+}
+
+.checkout_wrapper .product_info{
+  width: 45%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: relative;
+}
+
+.checkout_wrapper .product_info img{
+  width: 240px;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+.slipTitle{
+  margin-top: -1%;
+  font-size: 10px;
+  margin-left: 23%;
+  font-family: "Papyrus",Monospace;
+}
+.txnDatelbl{
+  font-family: "Courier New",Sans-serif;
+}
+
+.txnDate{
+  border-color: #ffffff;
+  color: #646464;
+}
+.radioTXT{
+  font-family: "Garamond",Sans-serif;
+  font-size: medium;
+}
+
+.checkout_wrapper .checkout_form{
+  width: 85%;
+  background: rgba(255, 255, 255, 0.13);
+  padding: 50px 30px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.checkout_wrapper .product_info .content{
+  text-align: center;
+  margin-top: 25px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.checkout_wrapper .product_info .content p{
+  margin-top: 10px;
+  font-size:14px;
+}
+
+.checkout_form p{
+  margin-bottom: 25px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.checkout_form .details .section{
+  margin-bottom: 15px;
+}
+
+.checkout_form .details .section input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #dddddd;
+}
+
+.checkout_form .details .section input[type="text"]:focus{
+  border: 2px solid #e85c4d;
+}
+
+.checkout_form .details .section.last_section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout_form .details .section.last_section .item{
+  width: 48%;
+}
+.paySubBtn{
+  
+  width: 100%;
+  background-color: #ff8828;
+  border: none;
+  outline: none;
+  height: 25%;
+  border-radius: 5%x;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;  
+  margin-top: -2%;
+
+}
+
+/* payment slip Ends */
+
+
+
+/* Price Details Bar starts */
+.innertext{
+  color:rgb(255, 81, 0);
+  font-size: 330%;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe607, 0 0 40px #e66800, 0 0 50px #e6bc00, 0 0 60px #fa3908, 0 0 70px #e64100;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff582e, 0 0 40px #ffc62b, 0 0 50px #eeb61b, 0 0 60px #ff481a, 0 0 70px #ff460d, 0 0 80px #ff5c2a;
+  }
+}
+.flip-box{
+  transform-style: preserve-3d;
+  perspective:1000px;
+  cursor:pointer;
+  width: 250px;
+  margin-left: 15%;
+  margin-top:20%;
+}
+
+.flip-box-front,
+.flip-box-back{
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  height: 200px;
+  background-image: url('moneyMonkey.png');
+  transition:transform 0.7s cubic-bezier(.4,.2,.2,1);
+  backface-visibility: hidden;
+}
+
+
+.flip-box-front{
+transform:rotateY(0deg);
+transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-front{
+transform:rotateY(-180deg);
+transform-style: preserve-3d;
+}
+
+.flip-box-back{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+transform: rotateY(180deg);
+transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-back{
+transform:rotateY(0deg);
+transform-style: preserve-3d;
+}
+
+.flip-box .inner{
+position:absolute;
+left:0;
+width:100%;
+padding:60px;
+outline:1px solid transparent;
+perspective: inherit;
+z-index: 2;
+transform: translateY(-50%)translateZ(60px) scale(.94);
+top:50%;
+}
+
+.flip-box-header{
+font-size:30px;
+
+}
+
+.flip-box p{
+font-size:20px;
+line-height: 1.5rem;
+
+}
+
+.flip-box-img{
+margin-top:25px;
+}
+
+.flip-box-button{
+background-color: transparent;
+border:2px solid #fff;
+border-radius: 2px;
+color:#fff;
+cursor:pointer;
+font-size:20px;
+font-weight: bold;
+margin-top:25px;
+padding:15px 20px;
+text-transform: uppercase;
+
+
+}
+
+/*Price Details Bar ends */
+
+
+
+/* Footer starts here */
+
+
+footer{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+   box-shadow: 2px 12px 8px 10px rgba(128, 111, 111, 0.75);
+  flex-flow: row wrap;
+  padding: 50px;
+  color: yellow;
+  background-color: grey;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.footer > *{
+  flex: 1 100%;
+}
+.footer-left{
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+  font-size: 15px;
+}
+.footer-left img{
+  width:50%;
+}
+h2{
+  font-weight: 600;
+  font-size: 20px;
+}
+.footer ul{
+  list-style: none;
+  padding-left: 0;
+}
+.footer li{
+  line-height:1.5em;
+}
+.footer a{
+  text-decoration: none;
+  font-size: 15px;
+}
+.footer-right{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+}
+.footer-right > *{
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+.box-footer a{
+  color: white;
+}
+.box-footer a:hover{
+  color: yellow;
+}
+.footer-bottom{
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+}
+.footer-left p{
+  padding-right: 20%;
+  color: white;
+}
+.social-media a{
+  background: lightgray;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  
+}
+.social-media a i{
+  color: black;
+  padding: 10px 12px;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .footer-right > *{
+      flex: 1;
+  }
+  .footer-left{
+      flex: 1 0px;
+  }
+  .footer-right{
+      flex: 2 0px;
+  }
+}
+
+@media (max-width: 600px){
+  .footer{
+      padding: 15px;
+  }
+  main{
+      font-size: 55px;
+  }
+}
+
+/* Footer Ends here */
+
+
+
+
+
+
