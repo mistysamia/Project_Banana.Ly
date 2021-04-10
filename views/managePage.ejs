@@ -23,7 +23,6 @@
 
             <!--    Nav Bar starts Here -->
 
-         
             <div class="container-fluid p-0">
                 <nav class="navbar navbar-expand-lg my-navbar">
                     <a class="navbar-brand" href="/userHome?email=<%= User.userEmail %>">
@@ -36,41 +35,41 @@
                                 <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
                                 <form method="POST" action="managePage" class="manage">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Links</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Links</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
                                 <!-- <form method="POST" action="adSubmission" > -->
-                                <form method="POST" action="adSubmission" >
+                                <form method="POST" action="adSubmission">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Place AD</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Place AD</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
                                 <!-- <form method="POST" action="adSubmission" > -->
-                                <form method="POST" action="allAds" >
+                                <form method="POST" action="allAds">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Statics</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Statics</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
-                                <form method="POST" action="walletPage" >
+                                <form method="POST" action="wallet">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Wallet</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Wallet</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
@@ -78,8 +77,12 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
-                                    <a class="dropdown-item"> <%= User.userEmail %> </a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
+                                        <%= User.name %>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <%= User.userEmail %>
+                                    </a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>

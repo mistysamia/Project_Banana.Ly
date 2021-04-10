@@ -100,47 +100,96 @@
             </image>
             <div class="checkout_wrapper">
 
-              
+
                 <div class="checkout_form">
-                    <p class="slipTitle">Payment Info</p>
+
+
+                    <input class="tgl tgl-flip" id="toggle" type="checkbox" onclick="togglefun()" />
+                    <label class="tgl-btn" data-tg-off="Payment!" data-tg-on="Cash Out!" id="toggle1" for="toggle"></label>
+
+
                     <div class="details">
-                        <!-- Amount  -->
-                        <div class="section">
-                            <input type="text" name="" id="" readonly
-                                placeholder=""
-                                value="Amount">
-                        </div>
-                        <!-- Amount  -->
-                        <div class="section">
-                            <input type="text" placeholder="Name">
-                        </div>
-                        <div class="section">
-                            <input type="text" placeholder="Password">
-                        </div>
-                        <div class="section last_section">
-                            <form action="">
-                                <label for="txnDatelbl" class="txnDatelbl">Transaction Date </label>
-                                <input type="date" id="txnDate" name="txnDate" class="txnDate">
-                              </form>
-                        </div>
-                        <div>
-                            <div class="d-flex">
 
-                                <label for="bkash" class="radioTXT">bKash&nbsp;
-                                    <input type="radio" id="bkash" class="radioBtn" name="txn" value="bkash">
-                                </label><br>
-
-                                <label for="nagad" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;নগদ&nbsp;
-                                    <input type="radio" id="nagad" class="radioBtn" name="txn" value="nagad">
-                                </label><br>
-
-                                <label for="visa" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visa&nbsp;
-                                      <input type="radio" id="visa" class="radioBtn" name="txn" value="visa">
-                                </label>
+                        <!-- Payment Part Starts -->
+                        <div class="paymentDiv" id="paymentDiv">
+                            <p class="slipTitle1">Pay For The Banana Smoothie</p>
+                            <!-- Amount  -->
+                            <div class="section" style="margin-top: 2%;">
+                                <input type="text" name="" id="" readonly placeholder="" value="Amount">
                             </div>
+                            <!-- Amount  -->
+                            <div class="section">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="section">
+                                <input type="text" placeholder="Password">
+                            </div>
+                            <div class="section last_section">
+                                <form action="">
+                                    <label for="txnDatelbl" class="txnDatelbl">Transaction Date </label>
+                                    <input type="date" id="txnDate" name="txnDate" class="txnDate">
+                                </form>
+                            </div>
+                            <div>
+                                <div class="d-flex">
+
+                                    <label for="bkash" class="radioTXT">bKash&nbsp;
+                                        <input type="radio" id="bkash" name="txn" value="bkash">
+                                    </label><br>
+
+                                    <label for="nagad" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;নগদ&nbsp;
+                                        <input type="radio" id="nagad" name="txn" value="nagad">
+                                    </label><br>
+
+                                    <label for="visa" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visa&nbsp;
+                                        <input type="radio" id="visa" name="txn" value="visa">
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="submit" class="paySubBtn" value="Done" id="doneButton" />
+                            <input type="submit" class="paySubBtn" value="Clear" id="doneButton" />
                         </div>
-                        <input type="submit"  class="paySubBtn" value="Done" id="doneButton" />
-                        <input type="submit"  class="paySubBtn" value="Clear" id="doneButton" />
+                        <!-- Payment Part ENds -->
+                        <!-- CashOut  Part Starts -->
+                        <div class="cashoutDiv" id=cashoutDiv>
+                            <p class="slipTitle2">Thanks For The Banana Pancakes</p>
+                            <!-- Amount  -->
+                            <div class="section" style="margin-top: 2%;">
+                                <input type="text" name="" id="" readonly placeholder="" value="Amount">
+                            </div>
+                            <!-- Amount  -->
+                            <div class="section">
+                                <input type="text" placeholder="Naame">
+                            </div>
+                            <div class="section">
+                                <input type="text" placeholder="Paassword">
+                            </div>
+                            <div class="section last_section">
+                                <form action="">
+                                    <label for="txnDatelbl" class="txnDatelbl">Transaction Date </label>
+                                    <input type="date" id="txnDate" name="txnDate" class="txnDate">
+                                </form>
+                            </div>
+                            <div>
+                                <div class="d-flex">
+
+                                    <label for="bkash" class="radioTXT">bKash&nbsp;
+                                        <input type="radio" id="bkash" name="txn" value="bkash">
+                                    </label><br>
+
+                                    <label for="nagad" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;নগদ&nbsp;
+                                        <input type="radio" id="nagad" name="txn" value="nagad">
+                                    </label><br>
+
+                                    <label for="visa" class="radioTXT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visa&nbsp;
+                                        <input type="radio" id="visa" name="txn" value="visa">
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="submit" class="paySubBtn" value="Done" id="doneButton" />
+                            <input type="submit" class="paySubBtn" value="Clear" id="doneButton" />
+                        </div>
+                        <!-- CashOut Part ENds -->
                     </div>
                 </div>
             </div>
@@ -281,16 +330,15 @@
     <!--For Toggle Button Starts -->
     <script type="text/javascript">
         function togglefun() {
-            var toggle = document.getElementById("toggle").getAttribute("style");
-            if (toggle == "transform: translateX(0px);") {
-                document.getElementById("toggle").style.transform = "translateX(73px)";
-                document.getElementById("bodybg").style.backgroundColor = "#615c5c";
-                document.getElementById("heading").style.color = "#fff";
+
+            var toggle = document.getElementById("toggle");
+            if (toggle.checked == true) {
+                document.getElementById('cashoutDiv').style.display = "block";
+                document.getElementById('paymentDiv').style.display = "none";
             }
             else {
-                document.getElementById("toggle").style.transform = "translateX(0px)";
-                document.getElementById("bodybg").style.backgroundColor = "#dbd7d7";
-                document.getElementById("heading").style.color = "#000";
+                document.getElementById('paymentDiv').style.display = "block";
+                document.getElementById('cashoutDiv').style.display = "none";
             }
         }
     </script>

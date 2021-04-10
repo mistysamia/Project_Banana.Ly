@@ -152,13 +152,80 @@ body {
 /* Background img Ends */
 
 
+/* Toggle STarts */
+
+
+.tgl {
+  display: none;
+
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+  margin-left: 80%;
+  margin-top: -19%;
+  margin-bottom: -15%;
+}
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 7em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.tgl-flip + .tgl-btn:after, .tgl-flip + .tgl-btn:before {
+  display: inline-block;
+  transition: all 0.4s ease;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  line-height: 2em;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+.tgl-flip + .tgl-btn:after {
+  content: attr(data-tg-on);
+  background: #02c66f;
+  transform: rotateY(-180deg);
+}
+.tgl-flip + .tgl-btn:before {
+  background: #ff3a19;
+  content: attr(data-tg-off);
+  left:1;
+}
+.tgl-flip + .tgl-btn:active:before {
+  transform: rotateY(-20deg);
+}
+.tgl-flip:checked + .tgl-btn:before {
+  transform: rotateY(180deg);
+}
+.tgl-flip:checked + .tgl-btn:after {
+  transform: rotateY(0);
+  left: 0;
+  background: #7fc6a6;
+}
+.tgl-flip:checked + .tgl-btn:active:after {
+  transform: rotateY(20deg);
+}
+
+/* Toggle Ends */
+
 
 /* payment slip STarts */
 
 
 .checkout_wrapper{
   width: 500px;
-  height: 45%;
+  height: 48%;
   margin-left: 6%;
   display: flex;
   margin-top: -37%;
@@ -178,10 +245,18 @@ body {
   margin-left: 5px;
 }
 
-.slipTitle{
-  margin-top: -1%;
-  font-size: 10px;
-  margin-left: 23%;
+.slipTitle1{
+  margin-top: 25%;
+  font-size: 6px;
+  margin-left: 1%;
+  margin-bottom: -15%;
+  font-family: "Papyrus",Monospace;
+}
+.slipTitle2{
+  margin-top: 25%;
+  font-size: 6px;
+  margin-left: 1%;
+  margin-bottom: -15%;
   font-family: "Papyrus",Monospace;
 }
 .txnDatelbl{
@@ -196,8 +271,6 @@ body {
   font-family: "Garamond",Sans-serif;
   font-size: medium;
 }
-
-
 
 .checkout_wrapper .checkout_form{
   width: 85%;
@@ -235,15 +308,12 @@ body {
   border: 2px solid #dddddd;
 }
 
-.checkout_form .details .section input[type="text"]:focus{
-  border: 2px solid #e85c4d;
-}
+
 
 .checkout_form .details .section.last_section{
   display: flex;
   justify-content: space-between;
 }
-
 .checkout_form .details .section.last_section .item{
   width: 48%;
 }
@@ -263,6 +333,13 @@ body {
   transition: 0.5s;  
   margin-top: -2%;
 
+}
+
+.paymentDiv{
+
+}
+.cashoutDiv{
+  display: none;
 }
 
 /* payment slip Ends */
