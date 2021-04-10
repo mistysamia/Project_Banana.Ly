@@ -183,6 +183,17 @@ app.post('/payment', async (req, res) => {
     })
 })
 
+app.post('/PaymentPage', async (req, res) => {
+    const user = await User.findOne({ userEmail: req.body.email }) ;
+    const urlList = await shortUrl.find({ userEmail: req.body.email }).limit(3) ;
+    const urlStat = await shortUrl.find({ userEmail: req.body.email, monetized: true }) ;
+    res.render('PaymentPage', {
+        User: user,
+        urlList: urlList,
+        urlStat: urlStat
+    })
+})
+
 app.post('/allLinks', async (req, res) => {
     const user = await User.findOne({ userEmail : req.body.email }) ;
     const urlList = await ShortUrl.find({ userEmail: req.body.email }) ;
