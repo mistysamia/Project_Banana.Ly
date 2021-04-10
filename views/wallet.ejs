@@ -110,7 +110,11 @@
                             %> 
                             <div class="blog-slider__title">  Current Balance : <%= (totalIn-totalOut).toFixed(2) %> </div>
                             <!-- <div class="blog-slider__text"> 00 </div> -->
-                            <button  class="blog-slider__button">CASH OUT??</button>
+                            <form method="POST" action="PaymentPage" >
+                                <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
+                                <button type="submit" 
+                                class="blog-slider__button">CASH OUT??</button> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -175,53 +179,6 @@
                     </form>
                 </div>
                 <!-- More Button Ends -->
-                
-                <!-- Price Details bar starts -->
-                <div class="d-flex">
-                    <div class="box-item col-md-4">
-                        <div class="flip-box">
-                            <div class="flip-box-front text-center">
-                                <div class="inner  ">
-                                    <h3 class="innertext" style="margin-left: -5%;">bKash</h3>
-                                </div>
-                            </div>
-                            <div class="flip-box-back text-center" style="background-image: url('bkash.png');">
-                                <div class="inner">
-                                    <img src="arrow.png" alt="" class="flip-box-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-item col-md-4">
-                        <div class="flip-box">
-                            <div class="flip-box-front text-center">
-                                <div class="inner  ">
-                                    <h3 class="innertext" style="margin-left: -14%;">NAGAD</h3>
-                                </div>
-                            </div>
-                            <div class="flip-box-back text-center" style="background-image: url('nagad.png');">
-                                <div class="inner ">
-                                    <img src="arrow.png" alt="" class="flip-box-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-item col-md-4">
-                        <div class="flip-box">
-                            <div class="flip-box-front text-center">
-                                <div class="inner  ">
-                                    <h3 class="innertext">VISA</h3>
-                                </div>
-                            </div>
-                            <div class="flip-box-back text-center" style="background-image: url('visa.png');">
-                                <div class="inner ">
-                                    <img src="arrow.png" alt="" class="flip-box-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Price Details bar ends -->
             </section>
 
 
