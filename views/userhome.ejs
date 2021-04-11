@@ -35,41 +35,41 @@
                                 <!-- <a class="nav-link" href="/managePage.html">Links</a> -->
                                 <form method="POST" action="managePage" class="manage">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Links</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Links</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
                                 <!-- <form method="POST" action="adSubmission" > -->
-                                <form method="POST" action="adSubmission" >
+                                <form method="POST" action="adSubmission">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Place AD</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Place AD</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
                                 <!-- <form method="POST" action="adSubmission" > -->
-                                <form method="POST" action="allAds" >
+                                <form method="POST" action="allAds">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Statics</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Statics</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
                             </li>
                             <li class="nav-item active">
-                                <form method="POST" action="wallet" >
+                                <form method="POST" action="wallet">
                                     <input type="hidden" name="email" value="<%= User.userEmail %>" readonly>
-                                    <button type="submit" 
-                                    style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="managebtn">Wallet</button> 
+                                    <button type="submit"
+                                        style="margin-left: -30px;  font-size: large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="managebtn">Wallet</button>
                                     <!-- <input type="submit" class="btn btn-info" value="Links">  -->
                                     <!--  <div class="nav-link" type="submit"  >Links</div> -->
                                 </form>
@@ -77,8 +77,12 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Profile</a>
                                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>"> <%= User.name %> </a>
-                                    <a class="dropdown-item"> <%= User.userEmail %> </a>
+                                    <a class="dropdown-item" href="/u/<%=User.userEmail%>">
+                                        <%= User.name %>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <%= User.userEmail %>
+                                    </a>
                                     <a class="dropdown-item" href="/"> Log out </a>
                                 </ul>
                             </li>
@@ -88,18 +92,17 @@
             </div>
             <!--    Nav Bar Ends Here -->
 
+            <!-- Alert Message Option Start  -->
+
+            <div id="alert1" class="alert1">Monetization turn ON</div>
+            <div id="alert2" class="alert2">Monetization turn OFF</div>
+
+            <!-- Alert Message Option Ends  -->
 
 
 
             <!-- Main field starts -->
             <section class="box" style="margin-bottom: 130px;">
-                <!-- <div>
-            <input type="text" name="" required="required">
-            <span>Give Me the Link</span>
-            <div class="d-flex justify-content-center">
-                <input class="l" type="checkbox">
-            </div>
-        </div>-->
                 <!--Input Starts Here-->
                 <div>
                     <form class="my-4 form-inline" action="uShrink" method="POST">
@@ -114,54 +117,15 @@
                             <div class="form__field form__field--submit">
                                 <div style="margin-left: 60px;">
                                     <input type="submit"
-                                    style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                                    class="btn" value="Shrink" id="shrinkButton" />
+                                        style="margin-left: -30px; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                                        class="btn" value="Shrink" id="shrinkButton" />
                                 </div>
                             </div>
+
                             <div class="d-flex justify-content-center">
-                                <input class="l" type="checkbox" value="monetized" id = "toggle" name="toggle">
+                                <input class="l" type="checkbox" value="monetized" id="toggle" name="toggle"
+                                    onclick="onToggle()">
                             </div>
-                            <script>
-                                function check_this_URL(){
-                                    var url = document.getElementById('fullUrl').value ;
-                                    var btn = document.getElementById('shrinkButton') ;
-                                    if(url.substring(0, 30) == "https://bananaly.herokuapp.com"
-                                    || url.substring(0, 29) == "http://bananaly.herokuapp.com"
-                                    || url.substring(0, 22) == "https://localhost:5000"
-                                    || url.substring(0, 21) == "http://localhost:5000"
-                                    || url.substring(0, 14) == "localhost:5000"){
-                                        btn.disabled = true ;
-                                        alert("Can't shrink links of this website...");
-                                    }
-                                    else{
-                                        btn.disabled = false ;
-                                    }
-                                }
-                                function onToggle(){
-                                    const tog_btn = document.getElementById("toggle") ;
-                                    
-                                    if (tog_btn.value == "monetized") {
-                                        tog_btn.value = "not_monetized" ;
-                                        var message = "Monetization turned on."
-                                        var confirmBox = confirm(message);
-                                        if (confirmBox == true) {
-                                            
-                                        } else {
-                                            
-                                        }
-                                    }
-                                    else {
-                                        tog_btn.value = "monetized" ;
-                                        var message = "Monetization turned off."
-                                        var confirmBox = confirm(message);
-                                        if (confirmBox == true) {
-    
-                                        } else {
-    
-                                        }
-                                    }
-                                }
-                            </script>
                         </div>
                     </form>
                 </div>
@@ -190,62 +154,64 @@
 
             <section class="container section_io ">
 
-                <!-- <div>
-                    <div class="togggleflip" onclick="togglefun()">
-                        <div id="toggle"></div>
-                    </div>
-                </div> -->
-
                 <!--Table Starts-->
                 <div>
                     <table>
                         <tr id="header">
                             <th>ShortURL</th>
                             <th>MainURL</th>
-                            <th>Clicks</th>  
+                            <th>Clicks</th>
                             <th>Creation Time</th>
                             <th>Revenue</th>
                             <th>M</th>
                         </tr>
-                        <% var cnt = 0 ; %>
-                        <% urlList.forEach(element => { %>
-                            <tr>
-                                <td><a href="<%= element.short %>"><%= element.short %> </a></td>
-                                <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
-                                <td>
-                                    <!-- this content can be very large... -->
-                                    <div style="overflow:hidden; height: 20px;">
-                                        <a href="<%= element.full %>"><%= element.full %> </a>
-                                    </div>
-                                </td>
-                                <td><%= element.clicks %> </td>
-                                <td>
-                                    <!-- this content can be very large... -->
-                                    <div style="overflow:hidden; height: 20px;">
-                                        <%= element.creationTime %>
-                                    </div>
-                                </td>
-                                <td><%= ((element.clicks * 0.1) * element.monetized).toFixed(2) %> TK</td>
-                                <td>
-                                    <% if(element.monetized == true){ %> 
-                                        <%= 'Y' %> 
-                                    <% }else{ %> 
-                                            <%= 'N' %> 
-                                    <% } %> 
-                                </td>
-                            </tr>
-                            <% cnt++; %> 
-                        <% }); %>
-                        <% for(i = 0 ; i < 3 - cnt ; i++){ %> 
-                            <tr>
-                                <td>NIL</td>
-                                <td>NIL</td>
-                                <td>NIL</td>
-                                <td>NIL</td>
-                                <td>NIL</td>
-                                <td>NIL</td>
-                            </tr>
-                        <% } %> 
+                        <% var cnt=0 ; %>
+                            <% urlList.forEach(element=> { %>
+                                <tr>
+                                    <td><a href="<%= element.short %>">
+                                            <%= element.short %>
+                                        </a></td>
+                                    <!-- <td><a href="<%= element.full %>"><%= element.full %> </a></td> -->
+                                    <td>
+                                        <!-- this content can be very large... -->
+                                        <div style="overflow:hidden; height: 20px;">
+                                            <a href="<%= element.full %>">
+                                                <%= element.full %>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <%= element.clicks %>
+                                    </td>
+                                    <td>
+                                        <!-- this content can be very large... -->
+                                        <div style="overflow:hidden; height: 20px;">
+                                            <%= element.creationTime %>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <%= ((element.clicks * 0.1) * element.monetized).toFixed(2) %> TK
+                                    </td>
+                                    <td>
+                                        <% if(element.monetized==true){ %>
+                                            <%= 'Y' %>
+                                                <% }else{ %>
+                                                    <%= 'N' %>
+                                                        <% } %>
+                                    </td>
+                                </tr>
+                                <% cnt++; %>
+                                    <% }); %>
+                                        <% for(i=0 ; i < 3 - cnt ; i++){ %>
+                                            <tr>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                                <td>NIL</td>
+                                            </tr>
+                                            <% } %>
                     </table>
                 </div>
 
@@ -257,8 +223,9 @@
                         <button class="cta" type="submit">
                             <p style="margin-left: -40px; margin-top: -15px;">More</p>
                             <span>
-                                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"  style="margin-left: 60px; margin-top: 40px;"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                    style="margin-left: 60px; margin-top: 40px;" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <path class="one"
                                             d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
@@ -376,24 +343,45 @@
 
     <!-- For Nav Bar End -->
 
+    <!-- For SHrink and Toggle  Starts -->
 
-    <!--For Toggle Button Starts -->
-    <!-- <script type="text/javascript">
-        function togglefun() {
-            var toggle = document.getElementById("toggle").getAttribute("style");
-            if (toggle == "transform: translateX(0px);") {
-                document.getElementById("toggle").style.transform = "translateX(73px)";
-                document.getElementById("bodybg").style.backgroundColor = "#615c5c";
-                document.getElementById("heading").style.color = "#fff";
+    <script>
+        function check_this_URL() {
+            var url = document.getElementById('fullUrl').value;
+            var btn = document.getElementById('shrinkButton');
+            if (url.substring(0, 30) == "https://bananaly.herokuapp.com"
+                || url.substring(0, 29) == "http://bananaly.herokuapp.com"
+                || url.substring(0, 22) == "https://localhost:5000"
+                || url.substring(0, 21) == "http://localhost:5000"
+                || url.substring(0, 14) == "localhost:5000") {
+                btn.disabled = true;
+                alert("Can't shrink links of this website...");
             }
             else {
-                document.getElementById("toggle").style.transform = "translateX(0px)";
-                document.getElementById("bodybg").style.backgroundColor = "#dbd7d7";
-                document.getElementById("heading").style.color = "#000";
+                btn.disabled = false;
             }
         }
-    </script> -->
-    <!--For Toggle Button Ends -->
+        function onToggle() {
+            const tog_btn = document.getElementById("toggle");
+            console.log(tog_btn);
+            if (tog_btn.value == "monetized") {
+                tog_btn.value = "not_monetized";
+                var x = document.getElementById("alert1");
+                x.className = "show";
+                console.log("1");
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            }
+            else {
+                tog_btn.value = "monetized";
+                var x = document.getElementById("alert2");
+                x.className = "show";
+                console.log("2");
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            }
+        }
+    </script>
+    <!-- For SHrink and Toggle  ENds -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
